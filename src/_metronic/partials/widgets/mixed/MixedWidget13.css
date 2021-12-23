@@ -1,0 +1,37 @@
+.divMain13{
+    display: grid;
+
+    grid-template-columns: 2fr 2fr 2fr;   /* 1 fraction ofthe total remaining space // or use repeat(2, 1fr) */ 
+    grid-template-rows: repeat(1, 1fr);  /* row 1 and row 2 */
+    column-gap: 2rem;
+
+    box-sizing: border-box;
+    
+    font-size: 2rem;
+    color: #808285;   
+ 
+    /* background-color: 'gree'; */
+    /* background-color: red;    */
+
+    
+}
+
+.divMainbody13{
+
+    width: 300px;
+    height: 320px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    color: #000000;
+     
+    background-color: #C4C4C4;
+    border-radius: 10px;
+
+}
