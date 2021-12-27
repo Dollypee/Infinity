@@ -17,13 +17,23 @@ import {
   MixedWidget12,
   MixedWidget15
 } from '../../../_metronic/partials/widgets'
-// import MixedWidget12 from '../../../_metronic/partials/widgets/mixed/MixedWidget12'
+import ZoomI from '../../modules/zoomAndPan/ZoomI'
 import MixedWidget13 from '../../../_metronic/partials/widgets/mixed/MixedWidget13'
 import MixedWidget14 from '../../../_metronic/partials/widgets/mixed/MixedWidget14'
 
 const DashboardPage: FC = () => (
   <>
     {/* begin::Row */}
+  
+      <div className='col-xxl-4'>
+       
+      <ZoomI
+        width={500}
+        height={300}
+      />
+        
+      </div>
+
     <div className='row gy-5 g-xl-8'>
       <div className='col-xxl-4'>
           <MixedWidget12
