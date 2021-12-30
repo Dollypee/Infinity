@@ -16,7 +16,7 @@ export function AsideMenuMain() {
         title={intl.formatMessage({id: 'MENU.DASHBOARD'})}
         fontIcon='bi-app-indicator'
       />
-      <AsideMenuItem
+      {/* <AsideMenuItem
         to='/builder'
         icon='/media/icons/duotune/general/gen019.svg'
         title='Layout Builder'
@@ -26,26 +26,28 @@ export function AsideMenuMain() {
         <div className='menu-content pt-8 pb-2'>
           <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Crafted</span>
         </div>
-      </div>
-      <AsideMenuItemWithSub
-        to='/crafted/pages'
-        title='Pages'
-        fontIcon='bi-archive'
-        icon='/media/icons/duotune/general/gen022.svg'
-      >
-        <AsideMenuItemWithSub to='/crafted/pages/profile' title='Profile' hasBullet={true}>
-          <AsideMenuItem to='/crafted/pages/profile/overview' title='Overview' hasBullet={true} />
-          <AsideMenuItem to='/crafted/pages/profile/projects' title='Projects' hasBullet={true} />
-          <AsideMenuItem to='/crafted/pages/profile/campaigns' title='Campaigns' hasBullet={true} />
-          <AsideMenuItem to='/crafted/pages/profile/documents' title='Documents' hasBullet={true} />
-          <AsideMenuItem
-            to='/crafted/pages/profile/connections'
-            title='Connections'
-            hasBullet={true}
-          />
-        </AsideMenuItemWithSub>
+      </div> */}
 
-        <AsideMenuItemWithSub to='/crafted/pages/wizards' title='Wizards' hasBullet={true}>
+      <AsideMenuItem
+        to='/register'
+        icon='/media/icons/duotune/general/gen022.svg'
+        title='Register'
+        fontIcon='bi-archive'
+      />
+
+      <AsideMenuItem
+        to='/user-earning'
+        icon='/media/icons/duotune/general/gen022.svg'
+        title='User Earnings'
+        fontIcon='bi-archive'
+      />
+      <AsideMenuItemWithSub to='/e_wallet' title='E-Wallet' icon='/media/icons/duotune/general/gen022.svg'>
+        <AsideMenuItem to='/e_wallet/statement' title='E-Wallet Statement' />
+        <AsideMenuItem to='/e_wallet/status' title='E-Wallet Status' />
+      
+      </AsideMenuItemWithSub>
+
+        {/* <AsideMenuItemWithSub to='/crafted/pages/wizards' title='Wizards' hasBullet={true}>
           <AsideMenuItem
             to='/crafted/pages/wizards/horizontal'
             title='Horizontal'
@@ -53,7 +55,6 @@ export function AsideMenuMain() {
           />
           <AsideMenuItem to='/crafted/pages/wizards/vertical' title='Vertical' hasBullet={true} />
         </AsideMenuItemWithSub>
-      </AsideMenuItemWithSub>
       <AsideMenuItemWithSub
         to='/crafted/accounts'
         title='Accounts'
@@ -116,7 +117,7 @@ export function AsideMenuMain() {
           </span>
           <span className='menu-title'>Changelog {process.env.REACT_APP_VERSION}</span>
         </a>
-      </div>
+      </div> */}
     </>
   )
 }
