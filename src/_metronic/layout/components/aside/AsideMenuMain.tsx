@@ -16,6 +16,18 @@ export function AsideMenuMain() {
         title={intl.formatMessage({id: 'MENU.DASHBOARD'})}
         fontIcon='bi-app-indicator'
       />
+
+      <AsideMenuItemWithSub to='/network' title='Network' icon='/media/icons/duotune/general/gen022.svg'>
+        <AsideMenuItem to='/network/binary_tree' title='Binary Tree' />
+        <AsideMenuItem to='/network/unilevel_tree' title='Unilevel Tree' />
+        {/* <AsideMenuItem to='/network/status' title='Unilevel Tree' /> */}
+        <AsideMenuItem to='/network/downline_members' title='Downline Members' />
+        <AsideMenuItem to='/network/referral_members' title='Referal Members' />
+      
+      </AsideMenuItemWithSub>
+
+
+  
       {/* <AsideMenuItem
         to='/builder'
         icon='/media/icons/duotune/general/gen019.svg'
@@ -35,18 +47,99 @@ export function AsideMenuMain() {
         fontIcon='bi-archive'
       />
 
+
+      <AsideMenuItem
+        to='/register'
+        icon='/media/icons/duotune/general/gen022.svg'
+        title='Holding Tank'
+        fontIcon='bi-archive'
+      />
+
+    <AsideMenuItemWithSub to='/e_wallet' title='E-Wallet' icon='/media/icons/duotune/general/gen022.svg'>
+        <AsideMenuItem to='/e_wallet/statement' title='E-Wallet Statement' />
+        <AsideMenuItem to='/e_wallet/status' title='E-Wallet Status' />
+      
+      </AsideMenuItemWithSub>
+
       <AsideMenuItem
         to='/user-earning'
         icon='/media/icons/duotune/general/gen022.svg'
         title='User Earnings'
         fontIcon='bi-archive'
       />
-      <AsideMenuItemWithSub to='/e_wallet' title='E-Wallet' icon='/media/icons/duotune/general/gen022.svg'>
-        <AsideMenuItem to='/e_wallet/statement' title='E-Wallet Statement' />
-        <AsideMenuItem to='/e_wallet/status' title='E-Wallet Status' />
+
+    
+
+      <AsideMenuItemWithSub to='/payout' title='Payout' icon='/media/icons/duotune/general/gen022.svg'>
+        <AsideMenuItem to='/payout/request_payout' title='Request Payout' />
+        <AsideMenuItem to='/payout/payout_status' title='Payout Status' />
+    
       
       </AsideMenuItemWithSub>
 
+      <AsideMenuItemWithSub to='/payout' title='Profile Management' icon='/media/icons/duotune/general/gen022.svg'>
+        <AsideMenuItem to='/profile_management/view_profile' title='Profile View' />
+        <AsideMenuItem to='/profile_management/change_login_password' title='Change Login Password' />
+        <AsideMenuItem to='/profile_management/change_transaction_password' title='Change Transaction Pasword' />
+        <AsideMenuItem to='/profile_management/subscription_renewal' title='Subscription Renewal' />
+        <AsideMenuItem to='/profile_management/package_upgrade' title='Package Upgrade' />
+        <AsideMenuItem to='/profile_management/package_downgrade' title='Package Downgrade' />
+        <AsideMenuItem to='/profile_management/kyc_details' title='KYC Details' />
+      
+      </AsideMenuItemWithSub>
+
+      <AsideMenuItem
+        to='/shopping_cart'
+        icon='/media/icons/duotune/general/gen022.svg'
+        title='Shopping Cart'
+        fontIcon='bi-archive'
+      />
+
+<AsideMenuItemWithSub to='/reports' title='Reports' icon='/media/icons/duotune/general/gen022.svg'>
+      <AsideMenuItem to='/reports/commission' title='Commission' />
+      <AsideMenuItem to='/reports/sales' title='Sales' />
+        <AsideMenuItem to='/reports/purchase' title='Purchase' />
+        <AsideMenuItem to='/reports/income_statement' title='Income statement' />
+       
+      
+      </AsideMenuItemWithSub>
+
+
+    <AsideMenuItemWithSub to='/tools' title='Tools' icon='/media/icons/duotune/general/gen022.svg'>
+        <AsideMenuItem to='/tools/leads' title='Leads' />
+        <AsideMenuItem to='/tools/news' title='News' />
+        <AsideMenuItem to='/tools/feedback' title='Feedback' />
+      
+      </AsideMenuItemWithSub>
+
+      <AsideMenuItem
+        to='/mailbox'
+        icon='/media/icons/duotune/general/gen022.svg'
+        title='Mail Box'
+        fontIcon='bi-archive'
+      />
+
+    <AsideMenuItem
+        to='/market_analyzer'
+        icon='/media/icons/duotune/general/gen022.svg'
+        title='Market Analyzer'
+        fontIcon='bi-archive'
+      />
+
+    <AsideMenuItem
+        to='/support_center'
+        icon='/media/icons/duotune/general/gen022.svg'
+        title='Support Center'
+        fontIcon='bi-archive'
+      />
+
+      <AsideMenuItem
+        to='/logout'
+        icon='/media/icons/duotune/general/gen022.svg'
+        title='Logout'
+        fontIcon='bi-archive'
+      />
+     
 
         {/* <AsideMenuItemWithSub to='/crafted/pages/wizards' title='Wizards' hasBullet={true}>
           <AsideMenuItem

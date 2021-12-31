@@ -23,34 +23,28 @@ import MixedWidget14 from '../../../_metronic/partials/widgets/mixed/MixedWidget
 
 const DashboardPage: FC = () => (
   <>
-    {/* begin::Row */}
-  
-      <div className='col-xxl-4'>
-       
-      <ZoomI
-        width={500}
-        height={300}
-      />
-        
-      </div>
-
-    <div className='row gy-5 g-xl-8'>
-      <div className='col-xxl-4'>
+  <div className='' >
+  <div className=''>
           <MixedWidget12
           content1='System Time'
           content2='Time Until autoreplacement'
           content3='Time until weekly commision'
           content4='Time until monthly commision'
-      />
+        />
         
       </div>
-      <div className='col-xxl-4'>
+  </div>
+  <div className=''>
+  <div className=''>
         <MixedWidget13/>
       
       </div>
 
-      <div className='col-xxl-4'>
-          <MixedWidget12
+  </div>
+{/* ////////////////// */}
+  <div className='' >
+  <div className=''>
+  <MixedWidget12
           content1='Earnings previous month ( estimated ) '
           content2='Earningscurrent month ( estimated ) '
           content3='Total Earnings'
@@ -58,36 +52,19 @@ const DashboardPage: FC = () => (
       />
         
       </div>
+  </div>
 
-      <div className='col-xxl-4'>
-          <MixedWidget14
+  {/* //////////////////////// */}
+
+  <div className='' >
+  <div className=''>
+      <MixedWidget14
        
-          />
+       />
         
       </div>
+  </div>
 
-      <div className='col-xxl-4'>
-          <MixedWidget15
-
-          content1='HP Pool Stats'
-          content2='Teamperformance'
-
-          />
-        
-      </div>
-
-      <div className='col-xxl-4'>
-          <MixedWidget15
-
-          content1='Commission Calender'
-          content2='News'
-
-          />
-        
-      </div>
-
-  
-    </div>
   </>
 )
 

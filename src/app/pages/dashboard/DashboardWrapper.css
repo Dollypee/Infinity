@@ -9,30 +9,9 @@
     
     font-size: 1.5rem;
     color: #808285;   
-    margin-bottom: 2rem;
  
     /* background-color: 'gree'; */
     /* background-color: red;    */
 
     
-}
-
-.divMainbody13{
-
-    width: 25rem;
-    height: 320px;
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-
-    color: #000000;
-     
-    background-color: #C4C4C4;
-    border-radius: 10px;
-
 }
