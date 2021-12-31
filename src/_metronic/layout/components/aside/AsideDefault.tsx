@@ -6,12 +6,16 @@ import clsx from 'clsx'
 import {useLayout} from '../../core'
 import {KTSVG, toAbsoluteUrl} from '../../../helpers'
 import {AsideMenu} from './AsideMenu'
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+
 
 const AsideDefault: FC = () => {
   const {config, classes} = useLayout()
   const {aside} = config
 
   return (
+ 
+   
     <div
       id='kt_aside'
       className={clsx('aside', classes.aside.join(' '))}
@@ -22,8 +26,12 @@ const AsideDefault: FC = () => {
       data-kt-drawer-width="{default:'200px', '300px': '250px'}"
       data-kt-drawer-direction='start'
       data-kt-drawer-toggle='#kt_aside_mobile_toggle'
+      
+
     >
-      {/* begin::Brand */}
+    
+
+    {/* begin::Brand */}
       <div className='aside-logo flex-column-auto' id='kt_aside_logo'>
         {/* begin::Logo */}
         {aside.theme === 'dark' && (
@@ -91,6 +99,9 @@ const AsideDefault: FC = () => {
       </div>
       {/* end::Footer */}
     </div>
+
+ 
+  
   )
 }
 

@@ -4,6 +4,7 @@
 import React, { FC } from 'react'
 import { useIntl } from 'react-intl'
 import { PageTitle } from '../../../_metronic/layout/core'
+import './PaymentRequestBody.css'
 import {
     MixedWidget2,
     MixedWidget10,
@@ -16,29 +17,27 @@ import {
     TablesWidget5,
     TablesWidget10,
     MixedWidget8,
-    MixedWidget12,
+    PaymentRequestWid,
     TablesWidget13
   } from '../../../_metronic/partials/widgets'
 
 const Request_Payout: FC = () => (
   <>
-    <div className='card'>
-   
-      {/* begin::Body */}
-      <div className='card-body py-3'>
-        PayOut Request
-      </div>
-      {/* begin::Body */}
 
-    <TablesWidget13
-    className='card'
-    />
-      
-   
-  
+<div className='PaymentRequestBody'>
+      <div className='cardPay'>
+      <PaymentRequestWid/>
+
+        </div>
+
+        <div className=''>
+        <TablesWidget13
+        className='card'
+        /> 
+
+        </div>
+ </div>
     
-    
-    </div>
   </>
 )
 

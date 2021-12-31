@@ -16,6 +16,8 @@ import {
   UpgradePlan,
 } from '../partials'
 import {MenuComponent} from '../assets/ts/components'
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+
 
 const MasterLayout: React.FC = ({children}) => {
   const location = useLocation()
@@ -32,9 +34,15 @@ const MasterLayout: React.FC = ({children}) => {
   }, [location.key])
 
   return (
+    // <TransformWrapper
+       
+    // >
+    // <TransformComponent>
     <PageDataProvider>
       <div className='page d-flex flex-row flex-column-fluid'>
-        <AsideDefault />
+    
+            <AsideDefault />
+     
         <div className='wrapper d-flex flex-column flex-row-fluid' id='kt_wrapper'>
           <HeaderWrapper />
 
@@ -61,6 +69,10 @@ const MasterLayout: React.FC = ({children}) => {
       {/* end:: Modals */}
       <ScrollTop />
     </PageDataProvider>
+
+    // </TransformComponent>
+    // </TransformWrapper>
+
   )
 }
 

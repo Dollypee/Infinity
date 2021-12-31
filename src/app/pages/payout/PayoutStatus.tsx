@@ -3,7 +3,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { FC } from 'react'
 import { useIntl } from 'react-intl'
-import { PageTitle } from '../../../_metronic/layout/core'
+// import { PageTitle } from '../../../_metronic/layout/core'
+import {PageLink, PageTitle} from '../../../_metronic/layout/core'
+import {Redirect, Route, Switch} from 'react-router-dom'
 import {
     MixedWidget2,
     MixedWidget10,
@@ -20,26 +22,59 @@ import {
     TablesWidget13
   } from '../../../_metronic/partials/widgets'
 
+  import PendingPaymentRequest from '../../modules/profile/components/payout/PendingPaymentRequest'
+
+
+
+  const accountBreadCrumbs: Array<PageLink> = [
+    {
+      title: 'Account',
+      path: '/payout/payout_status',
+      isSeparator: false,
+      isActive: false,
+    },
+    {
+      title: '',
+      path: '',
+      isSeparator: true,
+      isActive: false,
+    },
+  ]
+
 const Payout_Status: FC = () => (
   <>
     <div className='card'>
-   
-      {/* begin::Body */}
-      <div className='card-body py-3'>
-        PayOut Status
-      </div>
-      {/* begin::Body */}
+   hhhhh
+    {/* <AccountHeader /> */}
+    <PendingPaymentRequest/>
+      <Switch>
+        <Route path='/user/pending_request'>
+          <PageTitle breadcrumbs={accountBreadCrumbs}>Overview</PageTitle>
+          <PendingPaymentRequest/>  
+        </Route>
+        <Route path='/user/approved_pending_payment'>
+          {/* <PageTitle breadcrumbs={accountBreadCrumbs}>Settings</PageTitle> */}
+          <PendingPaymentRequest />
+        </Route>
+        <Route path='/user/pending_request'>
+          {/* <PageTitle breadcrumbs={accountBreadCrumbs}>Overview</PageTitle> */}
+          <PendingPaymentRequest />
+        </Route>
+        <Route path='/user/approved_pending_payment'>
+          {/* <PageTitle breadcrumbs={accountBreadCrumbs}>Settings</PageTitle> */}
+          <PendingPaymentRequest />
+        </Route>
 
-    <TablesWidget13
-    className='card'
-    />
+        <Redirect from='/' exact={true} to='/payout/payout_status' />
+        <Redirect to='/payout/payout_status' />
+      </Switch>
+    </div>
+    </>
       
    
   
     
-    
-    </div>
-  </>
+
 )
 
 const PayoutStatusPage: FC = () => {

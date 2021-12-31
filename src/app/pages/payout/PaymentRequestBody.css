@@ -1,0 +1,12 @@
+.PaymentRequestBody{
+    /* background-color: red; */
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.cardPay{
+    background-color: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}

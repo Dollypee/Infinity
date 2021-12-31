@@ -20,9 +20,25 @@ import {
 import ZoomI from '../../modules/zoomAndPan/ZoomI'
 import MixedWidget13 from '../../../_metronic/partials/widgets/mixed/MixedWidget13'
 import MixedWidget14 from '../../../_metronic/partials/widgets/mixed/MixedWidget14'
+import { Zoom } from '@vx/zoom';
 
 const DashboardPage: FC = () => (
   <>
+   {/* <Zoom
+        width={width}
+        height={height}
+        scaleXMin={1 / 2}
+        scaleXMax={4}
+        scaleYMin={1 / 2}
+        scaleYMax={4}
+        transformMatrix={initialTransform}
+      > */}
+      
+      {/* <ZoomI
+      
+      width={100}
+      height={1100}
+      /> */}
   <div className='' >
   <div className=''>
           <MixedWidget12

@@ -20,6 +20,8 @@ export * from './mixed/MixedWidget11'
 export * from './mixed/MixedWidget12'
 export * from './mixed/MixedWidget13'
 export * from './mixed/MixedWidget15'
+export * from './mixed/PaymentRequestWid'
+
 
 // lists
 export * from './lists/ListsWidget1'
