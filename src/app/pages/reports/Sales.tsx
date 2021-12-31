@@ -45,7 +45,7 @@ const SalesPage: FC = () => {
   const intl = useIntl()
   return (
     <>
-      <PageTitle breadcrumbs={[]}>{intl.formatMessage({ id: 'E-Wallet Status' })}</PageTitle>
+      <PageTitle breadcrumbs={[]}>{intl.formatMessage({ id: 'Sales' })}</PageTitle>
       <Sales_Page />
     </>
   )

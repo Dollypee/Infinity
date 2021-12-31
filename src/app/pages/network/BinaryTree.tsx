@@ -20,13 +20,13 @@ import {
     TablesWidget13
   } from '../../../_metronic/partials/widgets'
 
-const Referral_network: FC = () => (
+const Binary_Tree_Page: FC = () => (
   <>
     <div className='card'>
    
       {/* begin::Body */}
       <div className='card-body py-3'>
-        Referral Network
+      Binary_Tree_Page
       </div>
       {/* begin::Body */}
 
@@ -42,14 +42,14 @@ const Referral_network: FC = () => (
   </>
 )
 
-const ReferralNetworkPage: FC = () => {
+const BinaryTreePage: FC = () => {
   const intl = useIntl()
   return (
     <>
       <PageTitle breadcrumbs={[]}>{intl.formatMessage({ id: 'Referral Network' })}</PageTitle>
-      <Referral_network />
+      <Binary_Tree_Page />
     </>
   )
 }
 
-export { ReferralNetworkPage }
+export { BinaryTreePage }

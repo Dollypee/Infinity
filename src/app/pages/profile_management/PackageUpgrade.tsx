@@ -46,7 +46,7 @@ const PackageUpgradePage: FC = () => {
   const intl = useIntl()
   return (
     <>
-      <PageTitle breadcrumbs={[]}>{intl.formatMessage({ id: 'E-Wallet Status' })}</PageTitle>
+      <PageTitle breadcrumbs={[]}>{intl.formatMessage({ id: 'Package Upgrade' })}</PageTitle>
       <Package_Upgrade_Page />
     </>
   )

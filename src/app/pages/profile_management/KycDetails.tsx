@@ -46,7 +46,7 @@ const KycDetailsPage: FC = () => {
   const intl = useIntl()
   return (
     <>
-      <PageTitle breadcrumbs={[]}>{intl.formatMessage({ id: 'E-Wallet Status' })}</PageTitle>
+      <PageTitle breadcrumbs={[]}>{intl.formatMessage({ id: 'YC details' })}</PageTitle>
       <Kyc_Details_Page />
     </>
   )

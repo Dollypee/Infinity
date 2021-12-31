@@ -20,13 +20,13 @@ import {
     TablesWidget13
   } from '../../../_metronic/partials/widgets'
 
-const Referral_network: FC = () => (
+const Downline_Members_Page: FC = () => (
   <>
     <div className='card'>
    
       {/* begin::Body */}
       <div className='card-body py-3'>
-        Referral Network
+      Downline_Members_Page
       </div>
       {/* begin::Body */}
 
@@ -42,14 +42,14 @@ const Referral_network: FC = () => (
   </>
 )
 
-const ReferralNetworkPage: FC = () => {
+const DownlineMembersPage: FC = () => {
   const intl = useIntl()
   return (
     <>
       <PageTitle breadcrumbs={[]}>{intl.formatMessage({ id: 'Referral Network' })}</PageTitle>
-      <Referral_network />
+      <Downline_Members_Page />
     </>
   )
 }
 
-export { ReferralNetworkPage }
+export {DownlineMembersPage }

@@ -21,10 +21,13 @@ export function AsideMenuMain() {
         <AsideMenuItem to='/network/binary_tree' title='Binary Tree' />
         <AsideMenuItem to='/network/unilevel_tree' title='Unilevel Tree' />
         {/* <AsideMenuItem to='/network/status' title='Unilevel Tree' /> */}
-        <AsideMenuItem to='/network/downline_member' title='Downline Members' />
-        <AsideMenuItem to='/network/referral_member' title='Referal Members' />
+        <AsideMenuItem to='/network/downline_members' title='Downline Members' />
+        <AsideMenuItem to='/network/referral_members' title='Referal Members' />
       
       </AsideMenuItemWithSub>
+
+
+  
       {/* <AsideMenuItem
         to='/builder'
         icon='/media/icons/duotune/general/gen019.svg'

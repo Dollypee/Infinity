@@ -46,7 +46,7 @@ const ChangeTransactionPasswordPage: FC = () => {
   const intl = useIntl()
   return (
     <>
-      <PageTitle breadcrumbs={[]}>{intl.formatMessage({ id: 'E-Wallet Status' })}</PageTitle>
+      <PageTitle breadcrumbs={[]}>{intl.formatMessage({ id: 'Change Transaction Password' })}</PageTitle>
       <Change_Transaction_Password_Page />
     </>
   )

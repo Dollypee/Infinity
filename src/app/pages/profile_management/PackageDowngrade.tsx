@@ -46,7 +46,7 @@ const PackageDowngradePage: FC = () => {
   const intl = useIntl()
   return (
     <>
-      <PageTitle breadcrumbs={[]}>{intl.formatMessage({ id: 'E-Wallet Status' })}</PageTitle>
+      <PageTitle breadcrumbs={[]}>{intl.formatMessage({ id: 'Package Downgrade' })}</PageTitle>
       <Package_downgrade_Page />
     </>
   )

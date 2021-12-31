@@ -7,7 +7,14 @@ import { UserEarningPage } from '../pages/user-earnings/UserEarning'
 import {RegisterPage} from '../pages/register/Register'
 import { E_WalletStatementPage } from '../pages/e-wallet/EWalletStatement'
 import { E_WalletStatusPage } from '../pages/e-wallet/EWalletStatus'
+
+
 import {ReferralNetworkPage} from '../pages/network/ReferralMember'
+import {DownlineMembersPage} from '../pages/network/DownlineMembers'
+import {UnilevelTreePage} from '../pages/network/UnilevelTree'
+import {BinaryTreePage} from '../pages/network/BinaryTree'
+
+
 import {PayoutRequestPage} from '../pages/payout/RequestPayout'
 import {PayoutStatusPage} from '../pages/payout/PayoutStatus'
 import {ChangeLoginPasswordPage} from '../pages/profile_management/ChangeLoginPassword'
@@ -59,7 +66,12 @@ export function PrivateRoutes() {
         <Route path='/register' component={RegisterPage} />
         <Route path='/e_wallet/statement' component={E_WalletStatementPage} />
         <Route path='/e_wallet/status' component={E_WalletStatusPage} />
-        <Route path='/network/referral_member' component={ReferralNetworkPage} />
+        <Route path='/network/referral_members' component={ReferralNetworkPage} />
+        <Route path='/network/binary_tree' component={BinaryTreePage} />
+        <Route path='/network/downline_members' component={DownlineMembersPage} />
+        <Route path='/network/unilevel_tree' component={UnilevelTreePage} />
+
+
         <Route path='/payout/request_payout' component={PayoutRequestPage} />
         <Route path='/payout/payout_status' component={PayoutStatusPage} />
         <Route path='/profile_management/kyc_details' component={KycDetailsPage} />
