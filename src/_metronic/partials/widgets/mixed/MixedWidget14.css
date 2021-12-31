@@ -1,18 +1,20 @@
 .divMain14{
     display: grid;
 
-    grid-template-columns: 2fr 1fr;   /* 1 fraction ofthe total remaining space // or use repeat(2, 1fr) */ 
-    grid-template-rows: repeat(1, 1fr);  /* row 1 and row 2 */
-    column-gap: 1rem;
+    grid-template-columns: 1fr 2fr;   /* 1 fraction ofthe total remaining space // or use repeat(2, 1fr) */ 
+    /* grid-template-rows: repeat(1, 1fr);   */
+    column-gap: 2rem;
 
     box-sizing: border-box;
     
-    font-size: 2rem;
-    color: #808285; 
-    width: 1038px;  
+    font-size: 1.5rem;
+    color: #808285;   
+    margin-bottom: 2rem;
  
     /* background-color: 'gree'; */
     /* background-color: red;    */
+
+    
 
     
 }
