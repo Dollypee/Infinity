@@ -1,0 +1,185 @@
+/* ------- User ------- */
+.User{
+    max-width: fit-content;
+    margin: auto;
+    justify-content: center;
+}
+.userImage{
+    margin: auto;
+    width: 84px;
+    height: 84px;
+    padding: 3px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    border: 2px solid rgb(53, 48, 95);
+    justify-content: space-around;
+    margin-bottom: 5px;
+}
+.User .Avatar{
+    width: 74px;
+    height: auto;
+    margin: auto;
+    justify-content: space-around;
+}
+.userName{
+    font-size: 14px;
+    padding: 5px 10px;
+    background-color: rgb(20, 0, 199);
+    color: #fff;
+    border-radius: 5px;
+}
+
+
+/* ------- MemberStatus ------- */
+.memberStatus{
+    margin: auto;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+.memberStatus .title{
+    font-size: 24px;
+    color: rgb(32, 32, 53, 0.8);
+    text-align: center;
+    margin-bottom: 10px;
+}
+.memberStatus .memberType{
+    display: flex;
+    margin: auto;
+}
+.memberStatus .memberType .members{
+    width: 100px;
+    background: #f8f8f8;
+    padding: 7px;
+    border: 1px solid #a8a8a8;
+    text-align: center;
+}
+.memberStatus .memberType .members.two{
+    margin-left: -1px;
+}
+.memberStatus .memberType .Avatar{
+    margin: auto;
+    width: 70px;
+    height: auto;
+}
+.memberStatus .memberType .type{
+    margin-top: 5px;
+}
+
+
+
+/* ------- SearchUser ------- */
+.searchUser{
+    margin-bottom: 50px;
+}
+.searchUser form{
+    max-width: 420px;
+    margin: auto;
+    background: #f8f8f8;
+    padding: 5px 15px 0px 15px;
+    border-radius: 2px;
+    border: 1px solid rgb(52, 52, 58, 0.2);
+}
+.searchUser label{
+    font-size: 12px;
+    padding: 5px;
+}
+.searchUser .container{
+    display: flex;
+    padding: 5px;
+    padding-bottom: 15px;
+}
+.searchUser .container input{
+    width: 210px;
+    max-width: 240px;
+    border: 1px solid #a8a8a8;
+    background: transparent;
+    outline: none;
+}
+.searchUser .container .btn{
+    padding: 7px 12px;
+    min-width: 70px;
+    font-size: 12px;
+    color: #fff;
+    background: rgb(18, 121, 255);
+    margin-left: 4px;
+    cursor: pointer;
+}
+.searchUser .container .btn.right{
+    background: #999;
+}
+
+
+
+
+/* ------- CustomSearch ------- */
+.customSearch {
+    width: 100%;
+}
+.customSearch .mainContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 2px;
+    border: 1px solid rgb(52, 52, 58, 0.2);
+}
+.customSearch .mainContainer .container{
+    display: flex;
+    flex-direction: column;
+    width: 19%;
+    margin: 5px;
+    padding: 0%;
+}
+.customSearch .mainContainer .container label{
+    font-size: 12px;
+    padding: 5px;
+    padding-left: 0;
+}
+.customSearch .mainContainer .container input{
+    border: 1px solid #a8a8a8;
+    background: transparent;
+    outline: none;
+    height: 40px;
+}
+.customSearch .mainContainer .container select{
+    border: 1px solid #a8a8a8;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    padding: 5px;
+}
+.customSearch .mainContainer .btn{
+    padding: 7px 12px;
+    min-width: 70px;
+    font-size: 12px;
+    color: #fff;
+    background: rgb(18, 121, 255);
+    margin-left: 4px;
+    cursor: pointer;
+}
+.customSearch .mainContainer .btn.right{
+    background: #999;
+}
+.customSearch .mainContainer .container.buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding-bottom: 0%;
+}
+
+/* ------- DownlineCard ------- */
+.card .component{
+    width: 100%;
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 2px;
+    border: 1px solid rgb(52, 52, 58, 0.2);
+    margin-bottom: 30px;
+    margin-top: 5px;
+}
+.card .amount{
+    font-size: 16px;
+    color: rgb(18, 121, 255);
+    margin-top: 5px;
+}
