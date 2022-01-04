@@ -19,6 +19,7 @@ import {
     MixedWidget12,
     TablesWidget13
   } from '../../../_metronic/partials/widgets'
+import ReferralCard from './ReferralCard'
 
 const Referral_network: FC = () => (
   <>
@@ -27,6 +28,8 @@ const Referral_network: FC = () => (
       {/* begin::Body */}
       <div className='card-body py-3'>
         Referral Network
+
+        <ReferralCard />
       </div>
       {/* begin::Body */}
 

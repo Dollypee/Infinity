@@ -19,6 +19,8 @@ import {
     MixedWidget12,
     TablesWidget13
   } from '../../../_metronic/partials/widgets'
+import CustomSearch from './CustomSearch'
+import DownlineCard from './DownlineCard'
 
 const Downline_Members_Page: FC = () => (
   <>
@@ -27,6 +29,10 @@ const Downline_Members_Page: FC = () => (
       {/* begin::Body */}
       <div className='card-body py-3'>
       Downline_Members_Page
+      
+      <DownlineCard />
+      <CustomSearch />
+
       </div>
       {/* begin::Body */}
 
