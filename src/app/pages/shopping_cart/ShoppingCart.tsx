@@ -17,7 +17,8 @@ import {
     TablesWidget10,
     MixedWidget8,
     MixedWidget12,
-    TablesWidget13
+    TablesWidget13,
+    EngageWidget3
   } from '../../../_metronic/partials/widgets'
 
 const Shopping_Cart_Page: FC = () => (
@@ -30,7 +31,7 @@ const Shopping_Cart_Page: FC = () => (
       </div>
       {/* begin::Body */}
 
-    <TablesWidget13
+    <EngageWidget3
     className='card'
     />
       

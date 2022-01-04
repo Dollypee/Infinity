@@ -20,6 +20,8 @@ import {
     TablesWidget13
   } from '../../../_metronic/partials/widgets'
 
+  import { UserMenu } from '../../../_metronic/partials'
+
 const Change_Login_Password_Page: FC = () => (
   <>
     <div className='card'>
@@ -30,7 +32,7 @@ const Change_Login_Password_Page: FC = () => (
       </div>
       {/* begin::Body */}
 
-    <TablesWidget13
+    <TablesWidget10
     className='card'
     />
       

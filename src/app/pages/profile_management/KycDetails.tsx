@@ -20,6 +20,8 @@ import {
     TablesWidget13
   } from '../../../_metronic/partials/widgets'
 
+  import ZoomI from '../../modules/zoomAndPan/ZoomI'
+
 const Kyc_Details_Page: FC = () => (
   <>
     <div className='card'>
@@ -30,8 +32,10 @@ const Kyc_Details_Page: FC = () => (
       </div>
       {/* begin::Body */}
 
-    <TablesWidget13
-    className='card'
+    <ZoomI
+    width={1000}
+    height={500}
+  
     />
       
    

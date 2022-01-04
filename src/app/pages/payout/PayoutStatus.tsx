@@ -1,11 +1,11 @@
 
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { FC } from 'react'
+import React, { FC, Fragment} from 'react'
 import { useIntl } from 'react-intl'
 // import { PageTitle } from '../../../_metronic/layout/core'
 import {PageLink, PageTitle} from '../../../_metronic/layout/core'
-import {Redirect, Route, Switch} from 'react-router-dom'
+import {Redirect, Route, Switch,  HashRouter as Router, Link} from 'react-router-dom'
 import {
     MixedWidget2,
     MixedWidget10,
@@ -28,7 +28,7 @@ import {
 
   const accountBreadCrumbs: Array<PageLink> = [
     {
-      title: 'Account',
+      title: 'Payout',
       path: '/payout/payout_status',
       isSeparator: false,
       isActive: false,
@@ -41,33 +41,48 @@ import {
     },
   ]
 
-const Payout_Status: FC = () => (
+const Payout_Status: FC = (props) => (
   <>
     <div className='card'>
-   hhhhh
-    {/* <AccountHeader /> */}
-    <PendingPaymentRequest/>
-      <Switch>
-        <Route path='/user/pending_request'>
-          <PageTitle breadcrumbs={accountBreadCrumbs}>Overview</PageTitle>
-          <PendingPaymentRequest/>  
-        </Route>
-        <Route path='/user/approved_pending_payment'>
-          {/* <PageTitle breadcrumbs={accountBreadCrumbs}>Settings</PageTitle> */}
-          <PendingPaymentRequest />
-        </Route>
-        <Route path='/user/pending_request'>
-          {/* <PageTitle breadcrumbs={accountBreadCrumbs}>Overview</PageTitle> */}
-          <PendingPaymentRequest />
-        </Route>
-        <Route path='/user/approved_pending_payment'>
-          {/* <PageTitle breadcrumbs={accountBreadCrumbs}>Settings</PageTitle> */}
-          <PendingPaymentRequest />
-        </Route>
 
-        <Redirect from='/' exact={true} to='/payout/payout_status' />
-        <Redirect to='/payout/payout_status' />
+      
+  
+    {/* <AccountHeader /> */}
+    {/* <PendingPaymentRequest/>   */}
+
+        <Router >
+        <div >
+        <nav className='features-routes-links' >
+        <ul className='features-links'>
+          
+            <Link style={{ paddingRight: '1rem', borderWidth: '1rem'}} className='features-link first' to="/user/pending_withdrawal_request">Pending Request</Link>
+         
+            <Link style={{paddingRight: '1rem'}} className='features-link' to="/user/my_withdrawal_request">Approved - Pending Payment</Link>
+         
+            <Link style={{paddingRight: '1rem'}} className='features-link' to="/user/approved_withdrawal_request">Approved - Paid</Link>
+          
+            <Link  style={{ paddingRight: '1rem'}}className='features-link' to="/user/rejected_withdrawal_request">Rejected Requests</Link>
+     
+        </ul>
+    </nav>
+
+      <div className=''>
+      <Switch  >
+  
+      <Route path ="/" exact component={PendingPaymentRequest}/>
+      <Route exact path="/user/pending_withdrawal_request" component={MixedWidget11}/>
+      <Route exact path='/user/my_withdrawal_request' component={TablesWidget10}/>
+      <Route exact path='/user/approved_withdrawal_request' component={ListsWidget3}/>
+      <Route exact path='/user/rejected_withdrawal_request' component={ListsWidget5}/>
       </Switch>
+      </div>
+      </div>
+    </Router> 
+
+
+
+  
+     
     </div>
     </>
       
