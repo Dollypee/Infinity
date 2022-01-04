@@ -134,7 +134,7 @@ const UserEarning = () => {
       <div className='mt-4'>
           <div className='card'>
             <div className='card-body py-2 d-flex justify-content-end'>
-              <span className='fw-bold'>Total Commission Earned:  {PriceLabel(totalAmount)}</span>
+              <span className='fw-bold'>Total Commission Earned: <span className='text-primary'>{PriceLabel(totalAmount)}</span></span>
             </div>
         </div>
         <div className='mt-3'>
@@ -147,7 +147,21 @@ const UserEarning = () => {
               {
                 title: 'S/N',
                 render: (rowData) => rowData.tableData.id + 1,
-              }, ...columns
+              },
+              {
+                title: 'Category',
+                field: 'category'
+              },
+              {
+                title: 'Amount',
+                render: (rowData) => 
+                  PriceLabel(rowData.amount)
+                
+              },
+              {
+                title: 'Transaction Date',
+                field: 'transactionDate'
+              },
             ]}
             data={data}
             // actions={[
