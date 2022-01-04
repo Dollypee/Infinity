@@ -40,6 +40,11 @@ export * from './statistics/StatisticsWidget3'
 export * from './statistics/StatisticsWidget4'
 export * from './statistics/StatisticsWidget5'
 export * from './statistics/StatisticsWidget6'
+export * from './statistics/StatisticsWidget7'
+export * from './statistics/StatisticsWidget8'
+
+
+
 
 // charts
 export * from './charts/ChartsWidget1'

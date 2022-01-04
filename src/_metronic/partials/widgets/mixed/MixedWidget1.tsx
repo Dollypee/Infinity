@@ -17,7 +17,7 @@ const MixedWidget1: React.FC<Props> = ({className, color}) => {
         <div className={`px-9 pt-7 card-rounded h-275px w-100 bg-${color}`}>
           {/* begin::Heading */}
           <div className='d-flex flex-stack'>
-            <h3 className='m-0 text-white fw-bolder fs-3'>Sales Summary</h3>
+            <h3 className='m-0 text-white fw-bolder fs-3'>Unilevel Stats</h3>
             <div className='ms-1'>
               {/* begin::Menu */}
               <button
@@ -36,8 +36,8 @@ const MixedWidget1: React.FC<Props> = ({className, color}) => {
           {/* end::Heading */}
           {/* begin::Balance */}
           <div className='d-flex text-center flex-column text-white pt-8'>
-            <span className='fw-bold fs-7'>You Balance</span>
-            <span className='fw-bolder fs-2x pt-1'>$37,562.00</span>
+            {/* <span className='fw-bold fs-7'>You Balance</span> */}
+            <span className='fw-bolder fs-2x pt-1'>104.207 UV</span>
           </div>
           {/* end::Balance */}
         </div>

@@ -40,7 +40,7 @@ const MixedWidget2: React.FC<Props> = ({className, chartColor, chartHeight, stro
     <div className={`card ${className}`}>
       {/* begin::Header */}
       <div className={`card-header border-0 py-5 bg-${chartColor}`}>
-        <h3 className='card-title fw-bolder text-white'>Sales Statistics</h3>
+        <h3 className='card-title fw-bolder text-white'>Team Sales</h3>
         <div className='card-toolbar'>
           {/* begin::Menu */}
           <button
@@ -76,8 +76,12 @@ const MixedWidget2: React.FC<Props> = ({className, chartColor, chartHeight, stro
                 className='svg-icon-3x svg-icon-warning d-block my-2'
               />
               <a href='#' className='text-warning fw-bold fs-6'>
-                Weekly Sales
+                3 200,00 BV
+                
               </a>
+              <p>
+                <a href=""> Left Sales</a>
+              </p>
             </div>
             {/* end::Col */}
             {/* begin::Col */}
@@ -87,8 +91,12 @@ const MixedWidget2: React.FC<Props> = ({className, chartColor, chartHeight, stro
                 className='svg-icon-3x svg-icon-primary d-block my-2'
               />
               <a href='#' className='text-primary fw-bold fs-6'>
-                New Users
+                350 000 BV
+               
               </a>
+              <p>
+                <a href=""> Right Sales</a>
+              </p>
             </div>
             {/* end::Col */}
           </div>
@@ -102,19 +110,27 @@ const MixedWidget2: React.FC<Props> = ({className, chartColor, chartHeight, stro
                 className='svg-icon-3x svg-icon-danger d-block my-2'
               />
               <a href='#' className='text-danger fw-bold fs-6 mt-2'>
-                Item Orders
+                0, 00 BV
               </a>
+              <p>
+                <a href="">Right Carry Forward</a>
+              </p>
+              
             </div>
             {/* end::Col */}
             {/* begin::Col */}
-            <div className='col bg-light-success px-6 py-8 rounded-2'>
+            <div className='col bg-light-success px-7 py-8 rounded-2'>
               <KTSVG
                 path='/media/icons/duotune/communication/com010.svg'
                 className='svg-icon-3x svg-icon-success d-block my-2'
               />
               <a href='#' className='text-success fw-bold fs-6 mt-2'>
-                Bug Reports
+              0, 00 BV
               </a>
+              <p>
+                 <a href="">Right Carry Forward</a>
+              </p>
+             
             </div>
             {/* end::Col */}
           </div>
