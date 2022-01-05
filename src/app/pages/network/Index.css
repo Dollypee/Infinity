@@ -1,3 +1,8 @@
+/* binary tree */
+.treeNode{
+    width:200px;
+}
+
 /* ------- User ------- */
 .User{
     max-width: fit-content;

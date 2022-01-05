@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {FC} from 'react'
+import React, {useState, useContext, FC} from 'react'
 import {useIntl} from 'react-intl'
 import {PageTitle} from '../../../_metronic/layout/core'
 import {Tree, TreeNode} from 'react-organizational-chart'
@@ -21,79 +21,84 @@ import {
 } from '../../../_metronic/partials/widgets'
 import MemberStatus from './MemberStatus'
 import SearchUser from './SearchUser'
+import {ListContext, ListProvider} from './ArrayContext/ListContext'
 
-const ArrayList = {
-  name: 'bamzz',
-  rank: 'manager',
-  status: 'active',
-  children: [
-    {
-      name: 'josuu',
-      rank: 'manager',
-      status: 'active',
-      children: [
-        {
-          name: 'bamzz',
-          rank: 'manager',
-          status: 'active',
-          children: '',
-        },
-        {
-          name: 'bamzz',
-          rank: 'manager',
-          status: 'active',
-          children: '',
-        },
-        {
-          name: 'bamzz',
-          rank: 'manager',
-          status: 'active',
-          children: '',
-        },
-      ],
-    },
-    {
-      name: 'bamzz',
-      rank: 'manager',
-      status: 'active',
-      children: [
-        {
-          name: 'bamzz',
-          rank: 'manager',
-          status: 'active',
-          children: '',
-        },
-      ],
-    },
-    {
-      name: 'bamzz',
-      rank: 'manager',
-      status: 'active',
-      children: [
-        {
-          name: 'bamzz',
-          rank: 'manager',
-          status: 'active',
-          children: '',
-        },
-      ],
-    },
-  ],
-}
+// const ArrayList = {
+//   name: 'bamzz',
+//   rank: 'manager',
+//   status: 'active',
+//   children: [
+//     {
+//       name: 'josuu',
+//       rank: 'manager',
+//       status: 'active',
+//       children: [
+//         {
+//           name: 'bamzz',
+//           rank: 'manager',
+//           status: 'active',
+//           children: '',
+//         },
+//         {
+//           name: 'bamzz',
+//           rank: 'manager',
+//           status: 'active',
+//           children: '',
+//         },
+//         {
+//           name: 'bamzz',
+//           rank: 'manager',
+//           status: 'active',
+//           children: '',
+//         },
+//       ],
+//     },
+//     {
+//       name: 'bamzz',
+//       rank: 'manager',
+//       status: 'active',
+//       children: [
+//         {
+//           name: 'bamzz',
+//           rank: 'manager',
+//           status: 'active',
+//           children: '',
+//         },
+//       ],
+//     },
+//     {
+//       name: 'bamzz',
+//       rank: 'manager',
+//       status: 'active',
+//       children: [
+//         {
+//           name: 'bamzz',
+//           rank: 'manager',
+//           status: 'active',
+//           children: '',
+//         },
+//       ],
+//     },
+//   ],
+// }
 
-function RenderArray(props) {
-  const data = props.data
-  const RenderList = data.children.map((list) => (
-      <TreeNode label={<User name={list.name} />}>
-        {list.children.map((el) => (
-          <TreeNode label={<User name={el.name} />} >
-          </TreeNode>
-        ))}
-      </TreeNode>
+function RenderArray() {
+  const [lists, setLists] = useContext(ListContext)
+  console.log(lists)
+  const RenderList = lists.children.map((list) => (
+    <TreeNode className='treeNode' label={<User name={list.name} />}>
+      {list.children.map((el) => (
+        <TreeNode className='treeNode' label={<User name={el.name} />}>
+          {el.children.map((one) => (
+            <TreeNode className='treeNode' label={<User name={one.name} />}></TreeNode>
+          ))}
+        </TreeNode>
+      ))}
+    </TreeNode>
   ))
   return (
     <div>
-      <Tree label={<User name={data.name}/>}>{RenderList}</Tree>
+      <Tree label={<User name={lists.name} />}>{RenderList}</Tree>
     </div>
   )
 }
@@ -105,7 +110,7 @@ const Binary_Tree_Page: FC = () => (
       <div className='card-body py-3'>
         Binary_Tree_Page
         <SearchUser />
-        <RenderArray data={ArrayList} />
+        <RenderArray />
         <MemberStatus />
       </div>
       {/* begin::Body */}
@@ -121,7 +126,9 @@ const BinaryTreePage: FC = () => {
   return (
     <>
       <PageTitle breadcrumbs={[]}>{intl.formatMessage({id: 'Referral Network'})}</PageTitle>
-      <Binary_Tree_Page />
+      <ListProvider>
+        <Binary_Tree_Page />
+      </ListProvider>
     </>
   )
 }
