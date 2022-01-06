@@ -3,6 +3,7 @@ import {useLocation} from 'react-router'
 import clsx from 'clsx'
 import {AsideMenuMain} from './AsideMenuMain'
 import {DrawerComponent, ScrollComponent, ToggleComponent} from '../../../assets/ts/components'
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 type Props = {
   asideMenuCSSClasses: string[]
@@ -25,6 +26,11 @@ const AsideMenu: React.FC<Props> = ({asideMenuCSSClasses}) => {
   }, [pathname])
 
   return (
+    // <TransformWrapper
+   
+       
+    // >
+    // <TransformComponent>
     <div
       id='kt_aside_menu_wrapper'
       ref={scrollRef}
@@ -47,6 +53,7 @@ const AsideMenu: React.FC<Props> = ({asideMenuCSSClasses}) => {
         <AsideMenuMain />
       </div>
     </div>
+   
   )
 }
 

@@ -7,6 +7,31 @@ import { PageTitle } from '../../../_metronic/layout/core'
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import {
+<<<<<<< HEAD
+    MixedWidget2,
+    MixedWidget10,
+    MixedWidget11,
+    ListsWidget2,
+    ListsWidget3,
+    ListsWidget4,
+    ListsWidget5,
+    ListsWidget6,
+    TablesWidget5,
+    TablesWidget10,
+    MixedWidget8,
+    MixedWidget12,
+    TablesWidget13,
+    EngageWidget3
+  } from '../../../_metronic/partials/widgets'
+
+const Shopping_Cart_Page: FC = () => (
+  <>
+    <div className='card'>
+   
+      {/* begin::Body */}
+      <div className='card-body py-3'>
+      Shopping_Cart_Page
+=======
   Box,
   Step,
   Stepper,
@@ -408,6 +433,7 @@ const Shopping_Cart_Page: FC = () => {
               </div>
   
             </div>
+>>>>>>> a6f2cef01b99fbc3395dbd41fb80237500941ec8
       </div>
       </>
     )
@@ -630,6 +656,12 @@ const Shopping_Cart_Page: FC = () => {
   return (
     <>
 
+<<<<<<< HEAD
+    <EngageWidget3
+    className='card'
+    />
+=======
+>>>>>>> a6f2cef01b99fbc3395dbd41fb80237500941ec8
       
       <Box className='mt-3'>
         {activeStep === 0 ? <Step1 /> : activeStep === 1 ? <Step2 /> : ''}

@@ -73,7 +73,7 @@ export function AsideMenuMain() {
       <AsideMenuItemWithSub to='/payout' title='Payout' icon='/media/icons/duotune/general/gen022.svg'>
         <AsideMenuItem to='/payout/request_payout' title='Request Payout' />
         <AsideMenuItem to='/payout/payout_status' title='Payout Status' />
-    
+        
       
       </AsideMenuItemWithSub>
 

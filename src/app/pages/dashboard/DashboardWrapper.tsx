@@ -15,56 +15,185 @@ import {
   TablesWidget10,
   MixedWidget8,
   MixedWidget12,
-  MixedWidget15
+  MixedWidget15,
+  MixedWidget1,
+  StatisticsWidget7,
+  StatisticsWidget8
 } from '../../../_metronic/partials/widgets'
 import ZoomI from '../../modules/zoomAndPan/ZoomI'
 import MixedWidget13 from '../../../_metronic/partials/widgets/mixed/MixedWidget13'
 import MixedWidget14 from '../../../_metronic/partials/widgets/mixed/MixedWidget14'
+import { Zoom } from '@vx/zoom';
 
 const DashboardPage: FC = () => (
   <>
-  <div className='' >
-  <div className=''>
-          <MixedWidget12
-          content1='System Time'
-          content2='Time Until autoreplacement'
-          content3='Time until weekly commision'
-          content4='Time until monthly commision'
-        />
-        
-      </div>
-  </div>
-  <div className=''>
-  <div className=''>
-        <MixedWidget13/>
+   {/* <Zoom
+        width={width}
+        height={height}
+        scaleXMin={1 / 2}
+        scaleXMax={4}
+        scaleYMin={1 / 2}
+        scaleYMax={4}
+        transformMatrix={initialTransform}
+      >  */}
       
-      </div>
-
-  </div>
-{/* ////////////////// */}
-  <div className='' >
-  <div className=''>
-  <MixedWidget12
-          content1='Earnings previous month ( estimated ) '
-          content2='Earningscurrent month ( estimated ) '
-          content3='Total Earnings'
-          content4='E-Wallet Balance'
+       <ZoomI
+      
+      width={700}
+      height={1100}
       />
-        
+
+
+
+<>
+
+
+      
+   
+
+
+
+
+  {/* begin::Row */}
+    <div className='row g-5 gx-xxl-8'>
+      <div className='col-xxl-3'>
+      <StatisticsWidget7
+            className='card-xl-stretch mb-xl-8'
+            color='blue'
+            title='System Time'
+            description='Marketing Analysis'
+            number='2001'
+          />
       </div>
-  </div>
+      <div className='col-xxl-3'>
+      <StatisticsWidget7
+            className='card-xl-stretch mb-xl-8'
+            color='orange'
+            title='Time Untill Auto Replacement'
+            description='Marketing Analysis'
+            number='4009'
+          />
+      </div>
+      <div className='col-xxl-3'>
+      <StatisticsWidget7
+            className='card-xl-stretch mb-xl-8'
+            color='green'
+            title='Time Until Weekly Commission run'
+            description='Marketing Analysis'
+            number='209.105.00C'
+          />
+      </div>
+      <div className='col-xxl-3'>
+      <StatisticsWidget7
+            className='card-xl-stretch mb-xl-8'
+            color='pink'
+            title='Time Until Monthly Commission run'
+            description='Marketing Analysis'
+            number='0.00C'
+          />
+      </div>
+    
+    </div>
+  {/* end::Row */}
 
-  {/* //////////////////////// */}
-
-  <div className='' >
-  <div className=''>
-      <MixedWidget14
+     {/* begin::Row */}
+     <div className='row gy-5 g-xl-8'>
+      <div className='col-xxl-4'>
+      <MixedWidget1 className='card-xl-stretch mb-xl-8' color='primary' />
+     
+      </div>
+      <div className='col-xxl-4'>
+        {/* <ListsWidget5 className='card-xxl-stretch' /> */}
+        <MixedWidget2
+          className='card-xl-stretch mb-xl-8'
+          chartColor='danger'
+          chartHeight='200px'
+          strokeColor='#cb1e46'
+        />
        
-       />
-        
       </div>
-  </div>
+      <div className='col-xxl-4'>
+      <ListsWidget2 className='card-xl-stretch mb-xl-8' />
+      </div>
+    </div>
+    {/* end::Row */}
 
+
+    
+  {/* begin::Row */}
+  <div className='row g-5 gx-xxl-8'>
+      <div className='col-xxl-3'>
+      <StatisticsWidget7
+            className='card-xl-stretch mb-xl-8'
+            color='blue'
+            title='400k Impressions'
+            description='Marketing Analysis'
+            number='2003'
+          />
+      </div>
+      <div className='col-xxl-3'>
+      <StatisticsWidget7
+            className='card-xl-stretch mb-xl-8'
+            color='orange'
+            title='400k Impressions'
+            description='Marketing Analysis'
+            number='9922'
+          />
+      </div>
+      <div className='col-xxl-3'>
+      <StatisticsWidget7
+            className='card-xl-stretch mb-xl-8'
+            color='green'
+            title='400k Impressions'
+            description='Marketing Analysis'
+            number='0208C'
+          />
+      </div>
+      <div className='col-xxl-3'>
+      <StatisticsWidget7
+            className='card-xl-stretch mb-xl-8'
+            color='pink'
+            title='400k Impressions'
+            description='Marketing Analysis'
+            number='0.00'
+          />
+      </div>
+    
+    </div>
+  {/* end::Row */}
+
+
+
+  
+  {/* begin::Row */}
+  <div className='row g-5 gx-xxl-8'>
+      <div className='col-xxl-4'>
+      <StatisticsWidget8
+            className='card-xl-stretch mb-xl-8'
+            color='red'
+            title='400k Impressions'
+            description='Marketing Analysis'
+            number='2001'
+          />
+      </div>
+      <div className='col-xxl-8'>
+      <StatisticsWidget8
+            className='card-xl-stretch mb-xl-8'
+            color='pink'
+            title='400k Impressions'
+            description='Marketing Analysis'
+            number='2899'
+          />
+      </div>
+ 
+    
+    </div>
+  {/* end::Row */}
+
+
+    
+  </>
+  
   </>
 )
 

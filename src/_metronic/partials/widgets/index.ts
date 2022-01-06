@@ -20,6 +20,8 @@ export * from './mixed/MixedWidget11'
 export * from './mixed/MixedWidget12'
 export * from './mixed/MixedWidget13'
 export * from './mixed/MixedWidget15'
+export * from './mixed/PaymentRequestWid'
+
 
 // lists
 export * from './lists/ListsWidget1'
@@ -38,6 +40,11 @@ export * from './statistics/StatisticsWidget3'
 export * from './statistics/StatisticsWidget4'
 export * from './statistics/StatisticsWidget5'
 export * from './statistics/StatisticsWidget6'
+export * from './statistics/StatisticsWidget7'
+export * from './statistics/StatisticsWidget8'
+
+
+
 
 // charts
 export * from './charts/ChartsWidget1'
@@ -63,6 +70,8 @@ export * from './tables/TablesWidget10'
 export * from './tables/TablesWidget11'
 export * from './tables/TablesWidget12'
 export * from './tables/TablesWidget13'
+export * from './tables/OrderRequestsTable'
+
 
 // engage
 export * from './engage/EngageWidget1'
