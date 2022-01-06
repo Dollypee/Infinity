@@ -13,10 +13,7 @@ import { scaleLinear } from '@vx/scale';
 const bg = '#0a0a0a';
 const points = [...new Array(1000)];
 
-// var colorScale
-var colorScale = scaleLinear<number>({ range: [0, 1], domain: [0, 1000] });
-console.log(colorScale)
-
+const colorScale = scaleLinear<number>({ range: [0, 1], domain: [0, 1000] });
 const sizeScale = scaleLinear<number>({ domain: [0, 600], range: [0.5, 8] });
 
 const initialTransform = {
@@ -52,8 +49,7 @@ export default function ZoomI({ width, height }: ZoomIProps) {
       >
         {zoom => (
           <div className="relative">
-          
-          <svg
+            <svg
               width={width}
               height={height}
               style={{ cursor: zoom.isDragging ? 'grabbing' : 'grab' }}
@@ -67,17 +63,61 @@ export default function ZoomI({ width, height }: ZoomIProps) {
                       cx={x}
                       cy={y}
                       r={i > 500 ? sizeScale(1000 - i) : sizeScale(i)}
-                    
-                      fill={interpolateRainbow(0.2)}
+                      fill={interpolateRainbow(colorScale(i))}
                     />
                   </React.Fragment>
                 ))}
               </g>
+              <rect
+                width={width}
+                height={height}
+                rx={14}
+                fill="transparent"
+                onTouchStart={zoom.dragStart}
+                onTouchMove={zoom.dragMove}
+                onTouchEnd={zoom.dragEnd}
+                onMouseDown={zoom.dragStart}
+                onMouseMove={zoom.dragMove}
+                onMouseUp={zoom.dragEnd}
+                onMouseLeave={() => {
+                  if (zoom.isDragging) zoom.dragEnd();
+                }}
+                onDoubleClick={event => {
+                  const point = localPoint(event) || { x: 0, y: 0 };
+                  zoom.scale({ scaleX: 1.1, scaleY: 1.1, point });
+                }}
+              />
+              {showMiniMap && (
+                <g
+                  clipPath="url(#zoom-clip)"
+                  transform={`
+                    scale(0.25)
+                    translate(${width * 4 - width - 60}, ${height * 4 - height - 60})
+                  `}
+                >
+                  <rect width={width} height={height} fill="#1a1a1a" />
+                  {phyllotaxis.map(({ x, y }, i) => (
+                    <React.Fragment key={`dot-sm-${i}`}>
+                      <circle
+                        cx={x}
+                        cy={y}
+                        r={i > 500 ? sizeScale(1000 - i) : sizeScale(i)}
+                        fill={interpolateRainbow(colorScale(i))}
+                      />
+                    </React.Fragment>
+                  ))}
+                  <rect
+                    width={width}
+                    height={height}
+                    fill="white"
+                    fillOpacity={0.2}
+                    stroke="white"
+                    strokeWidth={4}
+                    transform={zoom.toStringInvert()}
+                  />
+                </g>
+              )}
             </svg>
-
-           
-             
-            
             <div className="controls">
               <button
                 className="btn btn-zoom"
@@ -113,10 +153,7 @@ export default function ZoomI({ width, height }: ZoomIProps) {
         Based on Mike Bostock's{' '}
         <a href="https://bl.ocks.org/mbostock/4e3925cdc804db257a86fdef3a032a45">Pan & Zoom III</a>
       </div>
-
-
-
-      <style >{`
+      <style jsx>{`
         .btn {
           margin: 0;
           text-align: center;
@@ -131,12 +168,6 @@ export default function ZoomI({ width, height }: ZoomIProps) {
           line-height: 1;
           padding: 4px;
         }
-        .body{
-          width: 300px,
-          height: 300px,
-          background-color: 'red'
-
-        },
         .btn-zoom {
           width: 26px;
           font-size: 22px;
@@ -168,7 +199,6 @@ export default function ZoomI({ width, height }: ZoomIProps) {
           position: relative;
         }
       `}</style>
-
     </>
   );
 }

@@ -28,8 +28,8 @@ const StatisticsWidget7: React.FC<Props> = ({className, color, title, number}) =
 
 
 
-        <div>
-          <button
+        <div className='bg-light-warning'>
+          <button className='bg-light-warning'
           style={{color: `${color}`, border: 'none', padding: '0.5rem',}}
           >Show All</button>
         </div>

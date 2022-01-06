@@ -41,9 +41,15 @@ import {
     },
   ]
 
+  var bgCol 
+
+  const itemClick = ()=>{
+
+
+  }
 const Payout_Status: FC = (props) => (
   <>
-    <div className='card'>
+    <div className='cardPay'>
 
       
   
@@ -52,10 +58,10 @@ const Payout_Status: FC = (props) => (
 
         <Router >
         <div >
-        <nav className='features-routes-links' >
+        <nav className='features-routes-links' style={{backgroundColor: '#c9c2af', height: '3rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}} >
         <ul className='features-links'>
           
-            <Link style={{ paddingRight: '1rem', borderWidth: '1rem'}} className='features-link first' to="/user/pending_withdrawal_request">Pending Request</Link>
+            <Link style={{ paddingRight: '1rem', borderWidth: '1rem', backgroundColor: `${bgCol}`}} className='features-link first' to="/user/pending_withdrawal_request">Pending Request</Link>
          
             <Link style={{paddingRight: '1rem'}} className='features-link' to="/user/my_withdrawal_request">Approved - Pending Payment</Link>
          

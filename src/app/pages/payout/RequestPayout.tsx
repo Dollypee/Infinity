@@ -18,7 +18,8 @@ import {
     TablesWidget10,
     MixedWidget8,
     PaymentRequestWid,
-    TablesWidget13
+    TablesWidget13,
+    OrderRequestsTable
   } from '../../../_metronic/partials/widgets'
 
 const Request_Payout: FC = () => (
@@ -31,7 +32,7 @@ const Request_Payout: FC = () => (
         </div>
 
         <div className=''>
-        <TablesWidget13
+        <OrderRequestsTable
         className='card'
         /> 
 

@@ -35,17 +35,20 @@ const DashboardPage: FC = () => (
         scaleYMin={1 / 2}
         scaleYMax={4}
         transformMatrix={initialTransform}
-      > */}
+      >  */}
       
-      {/* <ZoomI
+       <ZoomI
       
-      width={100}
+      width={700}
       height={1100}
-      /> */}
+      />
 
 
 
 <>
+
+
+      
    
 
 
