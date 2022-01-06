@@ -22,65 +22,9 @@ import {
 import MemberStatus from './MemberStatus'
 import SearchUser from './SearchUser'
 import {ListContext, ListProvider} from './ArrayContext/ListContext'
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
-// const ArrayList = {
-//   name: 'bamzz',
-//   rank: 'manager',
-//   status: 'active',
-//   children: [
-//     {
-//       name: 'josuu',
-//       rank: 'manager',
-//       status: 'active',
-//       children: [
-//         {
-//           name: 'bamzz',
-//           rank: 'manager',
-//           status: 'active',
-//           children: '',
-//         },
-//         {
-//           name: 'bamzz',
-//           rank: 'manager',
-//           status: 'active',
-//           children: '',
-//         },
-//         {
-//           name: 'bamzz',
-//           rank: 'manager',
-//           status: 'active',
-//           children: '',
-//         },
-//       ],
-//     },
-//     {
-//       name: 'bamzz',
-//       rank: 'manager',
-//       status: 'active',
-//       children: [
-//         {
-//           name: 'bamzz',
-//           rank: 'manager',
-//           status: 'active',
-//           children: '',
-//         },
-//       ],
-//     },
-//     {
-//       name: 'bamzz',
-//       rank: 'manager',
-//       status: 'active',
-//       children: [
-//         {
-//           name: 'bamzz',
-//           rank: 'manager',
-//           status: 'active',
-//           children: '',
-//         },
-//       ],
-//     },
-//   ],
-// }
+
 
 function RenderArray() {
   const [lists, setLists] = useContext(ListContext)
@@ -103,6 +47,33 @@ function RenderArray() {
   )
 }
 
+
+function Zoom() {
+  
+  return (
+    <TransformWrapper 
+      initialScale={2}
+      initialPositionX={200}
+      initialPositionY={100}
+    >
+      {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
+        <React.Fragment>
+          <div className="tools">
+            <button onClick={() => zoomIn()}>+</button>
+            <button onClick={() => zoomOut()}>-</button>
+            <button onClick={() => resetTransform()}>x</button>
+          </div>
+          <TransformComponent >
+            <RenderArray />
+            <div>Example text</div>
+          </TransformComponent>
+        </React.Fragment>
+      )}
+    </TransformWrapper>
+  );
+}
+
+
 const Binary_Tree_Page: FC = () => (
   <>
     <div className='card'>
@@ -110,7 +81,7 @@ const Binary_Tree_Page: FC = () => (
       <div className='card-body py-3'>
         Binary_Tree_Page
         <SearchUser />
-        <RenderArray />
+        <Zoom />
         <MemberStatus />
       </div>
       {/* begin::Body */}
