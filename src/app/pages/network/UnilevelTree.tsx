@@ -24,13 +24,14 @@ import MemberStatus from './MemberStatus'
 import SearchUser from './SearchUser'
 import User from './User'
 import {UniListContext, ListProvider} from './ArrayContext/UniListContext'
+import ZoomU from './ZoomU'
 
 
 
 
 
 
-function RenderArray() {
+function RenderArray({zoom}) {
   const [lists, setLists] = useContext(UniListContext)
   console.log(lists)
   const RenderList = lists.children.map((list) => (
@@ -45,11 +46,21 @@ function RenderArray() {
     </TreeNode>
   ))
   return (
-    <div>
+    <div onTouchStart={zoom.dragStart}
+    onTouchMove={zoom.dragMove}
+    onTouchEnd={zoom.dragEnd}
+    onMouseDown={zoom.dragStart}
+    onMouseMove={zoom.dragMove}
+    onMouseUp={zoom.dragEnd}
+    onMouseLeave={() => {
+      if (zoom.isDragging) zoom.dragEnd();
+    }} style={{ transform: zoom ? zoom.toString(): 1, cursor: zoom.isDragging ? 'grabbing' : 'grab'}}>
       <Tree label={<User name={lists.name} />}>{RenderList}</Tree>
     </div>
   )
 }
+export default RenderArray
+
 
 const Unilevel_Tree_Page: FC = () => (
   <>
@@ -59,7 +70,8 @@ const Unilevel_Tree_Page: FC = () => (
       <div className='card-body py-3'>
       Unilevel_Tree_Page
       <SearchUser />
-        <RenderArray />
+        <ZoomU width={700}
+      height={1000}/>
         <MemberStatus />
       </div>
       {/* begin::Body */}
@@ -82,9 +94,9 @@ const UnilevelTreePage: FC = () => {
     <>
       <PageTitle breadcrumbs={[]}>{intl.formatMessage({ id: 'Referral Network' })}</PageTitle>
       <ListProvider>
-        <RenderArray />
-      </ListProvider>
+        
       <Unilevel_Tree_Page />
+      </ListProvider>
     </>
   )
 }

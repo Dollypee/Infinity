@@ -23,10 +23,11 @@ import MemberStatus from './MemberStatus'
 import SearchUser from './SearchUser'
 import {ListContext, ListProvider} from './ArrayContext/ListContext'
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import ZoomI from './ZoomI'
 
 
 
-function RenderArray() {
+function RenderArray({zoom}) {
   const [lists, setLists] = useContext(ListContext)
   console.log(lists)
   const RenderList = lists.children.map((list) => (
@@ -41,47 +42,33 @@ function RenderArray() {
     </TreeNode>
   ))
   return (
-    <div>
+    <div onTouchStart={zoom.dragStart}
+    onTouchMove={zoom.dragMove}
+    onTouchEnd={zoom.dragEnd}
+    onMouseDown={zoom.dragStart}
+    onMouseMove={zoom.dragMove}
+    onMouseUp={zoom.dragEnd}
+    onMouseLeave={() => {
+      if (zoom.isDragging) zoom.dragEnd();
+    }} style={{ transform: zoom ? zoom.toString(): 1, cursor: zoom.isDragging ? 'grabbing' : 'grab'}}>
       <Tree label={<User name={lists.name} />}>{RenderList}</Tree>
     </div>
   )
 }
 
+export default RenderArray
 
-function Zoom() {
-  
-  return (
-    <TransformWrapper 
-      initialScale={2}
-      initialPositionX={200}
-      initialPositionY={100}
-    >
-      {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
-        <React.Fragment>
-          <div className="tools">
-            <button onClick={() => zoomIn()}>+</button>
-            <button onClick={() => zoomOut()}>-</button>
-            <button onClick={() => resetTransform()}>x</button>
-          </div>
-          <TransformComponent >
-            <RenderArray />
-            <div>Example text</div>
-          </TransformComponent>
-        </React.Fragment>
-      )}
-    </TransformWrapper>
-  );
-}
 
 
 const Binary_Tree_Page: FC = () => (
   <>
     <div className='card'>
       {/* begin::Body */}
-      <div className='card-body py-3'>
+      <div style={{maxWidth: '100%'}} className='card-body py-3'>
         Binary_Tree_Page
         <SearchUser />
-        <Zoom />
+        <ZoomI  width={700}
+      height={1000}/>
         <MemberStatus />
       </div>
       {/* begin::Body */}
