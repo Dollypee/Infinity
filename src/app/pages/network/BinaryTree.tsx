@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {FC} from 'react'
+import React, {useState, useContext, FC} from 'react'
 import {useIntl} from 'react-intl'
 import {PageTitle} from '../../../_metronic/layout/core'
 import {Tree, TreeNode} from 'react-organizational-chart'
@@ -21,91 +21,54 @@ import {
 } from '../../../_metronic/partials/widgets'
 import MemberStatus from './MemberStatus'
 import SearchUser from './SearchUser'
+import {ListContext, ListProvider} from './ArrayContext/ListContext'
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import ZoomI from './ZoomI'
 
-const ArrayList = {
-  name: 'bamzz',
-  rank: 'manager',
-  status: 'active',
-  children: [
-    {
-      name: 'josuu',
-      rank: 'manager',
-      status: 'active',
-      children: [
-        {
-          name: 'bamzz',
-          rank: 'manager',
-          status: 'active',
-          children: '',
-        },
-        {
-          name: 'bamzz',
-          rank: 'manager',
-          status: 'active',
-          children: '',
-        },
-        {
-          name: 'bamzz',
-          rank: 'manager',
-          status: 'active',
-          children: '',
-        },
-      ],
-    },
-    {
-      name: 'bamzz',
-      rank: 'manager',
-      status: 'active',
-      children: [
-        {
-          name: 'bamzz',
-          rank: 'manager',
-          status: 'active',
-          children: '',
-        },
-      ],
-    },
-    {
-      name: 'bamzz',
-      rank: 'manager',
-      status: 'active',
-      children: [
-        {
-          name: 'bamzz',
-          rank: 'manager',
-          status: 'active',
-          children: '',
-        },
-      ],
-    },
-  ],
-}
 
-function RenderArray(props) {
-  const data = props.data
-  const RenderList = data.children.map((list) => (
-      <TreeNode label={<User name={list.name} />}>
-        {list.children.map((el) => (
-          <TreeNode label={<User name={el.name} />} >
-          </TreeNode>
-        ))}
-      </TreeNode>
+
+function RenderArray({zoom}) {
+  const [lists, setLists] = useContext(ListContext)
+  console.log(lists)
+  const RenderList = lists.children.map((list) => (
+    <TreeNode className='treeNode' label={<User name={list.name} />}>
+      {list.children.map((el) => (
+        <TreeNode className='treeNode' label={<User name={el.name} />}>
+          {el.children.map((one) => (
+            <TreeNode className='treeNode' label={<User name={one.name} />}></TreeNode>
+          ))}
+        </TreeNode>
+      ))}
+    </TreeNode>
   ))
   return (
-    <div>
-      <Tree label={<User name={data.name}/>}>{RenderList}</Tree>
+    <div onTouchStart={zoom.dragStart}
+    onTouchMove={zoom.dragMove}
+    onTouchEnd={zoom.dragEnd}
+    onMouseDown={zoom.dragStart}
+    onMouseMove={zoom.dragMove}
+    onMouseUp={zoom.dragEnd}
+    onMouseLeave={() => {
+      if (zoom.isDragging) zoom.dragEnd();
+    }} style={{ transform: zoom ? zoom.toString(): 1, cursor: zoom.isDragging ? 'grabbing' : 'grab'}}>
+      <Tree label={<User name={lists.name} />}>{RenderList}</Tree>
     </div>
   )
 }
+
+export default RenderArray
+
+
 
 const Binary_Tree_Page: FC = () => (
   <>
     <div className='card'>
       {/* begin::Body */}
-      <div className='card-body py-3'>
+      <div style={{maxWidth: '100%'}} className='card-body py-3'>
         Binary_Tree_Page
         <SearchUser />
-        <RenderArray data={ArrayList} />
+        <ZoomI  width={700}
+      height={1000}/>
         <MemberStatus />
       </div>
       {/* begin::Body */}
@@ -121,7 +84,9 @@ const BinaryTreePage: FC = () => {
   return (
     <>
       <PageTitle breadcrumbs={[]}>{intl.formatMessage({id: 'Referral Network'})}</PageTitle>
-      <Binary_Tree_Page />
+      <ListProvider>
+        <Binary_Tree_Page />
+      </ListProvider>
     </>
   )
 }

@@ -1,7 +1,7 @@
 
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { FC } from 'react'
+import React, {useState, useContext, FC} from 'react'
 import { useIntl } from 'react-intl'
 import { PageTitle } from '../../../_metronic/layout/core'
 import {Tree, TreeNode} from 'react-organizational-chart'
@@ -23,136 +23,44 @@ import {
 import MemberStatus from './MemberStatus'
 import SearchUser from './SearchUser'
 import User from './User'
+import {UniListContext, ListProvider} from './ArrayContext/UniListContext'
+import ZoomU from './ZoomU'
 
 
 
-const ArrayList = {
-  name: 'bamzz',
-  rank: 'manager',
-  status: 'active',
-  children: [
-    {
-      name: 'josuu',
-      rank: 'manager',
-      status: 'active',
-      children: [
-        {
-          name: 'bamzz',
-          rank: 'manager',
-          status: 'active',
-          children: '',
-        },
-        {
-          name: 'bamzz',
-          rank: 'manager',
-          status: 'active',
-          children: '',
-        },
-        {
-          name: 'bamzz',
-          rank: 'manager',
-          status: 'active',
-          children: '',
-        },
-      ],
-    },
-    {
-      name: 'bamzz',
-      rank: 'manager',
-      status: 'active',
-      children: [
-        {
-          name: 'bamzz',
-          rank: 'manager',
-          status: 'active',
-          children: '',
-        },
-      ],
-    },
-    {
-      name: 'bamzz',
-      rank: 'manager',
-      status: 'active',
-      children: [
-        {
-          name: 'bamzz',
-          rank: 'manager',
-          status: 'active',
-          children: '',
-        },
-      ],
-    },
-    {
-      name: 'bamzz',
-      rank: 'manager',
-      status: 'active',
-      children: [
-        {
-          name: 'bamzz',
-          rank: 'manager',
-          status: 'active',
-          children: '',
-        },
-      ],
-    },
-    {
-      name: 'bamzz',
-      rank: 'manager',
-      status: 'active',
-      children: [
-        {
-          name: 'bamzz',
-          rank: 'manager',
-          status: 'active',
-          children: '',
-        },
-      ],
-    },
-    {
-      name: 'bamzz',
-      rank: 'manager',
-      status: 'active',
-      children: [
-        {
-          name: 'bamzz',
-          rank: 'manager',
-          status: 'active',
-          children: '',
-        },
-      ],
-    },
-    {
-      name: 'bamzz',
-      rank: 'manager',
-      status: 'active',
-      children: [
-        {
-          name: 'bamzz',
-          rank: 'manager',
-          status: 'active',
-          children: '',
-        },
-      ],
-    },
-  ],
-}
 
-function RenderArray(props) {
-  const data = props.data
-  const RenderList = data.children.map((list) => (
-      <TreeNode label={<User name={list.name} />}>
-        {list.children.map((el) => (
-          <TreeNode label={<User name={el.name} />} >
-          </TreeNode>
-        ))}
-      </TreeNode>
+
+
+function RenderArray({zoom}) {
+  const [lists, setLists] = useContext(UniListContext)
+  console.log(lists)
+  const RenderList = lists.children.map((list) => (
+    <TreeNode className='treeNode' label={<User name={list.name} />}>
+      {list.children.map((el) => (
+        <TreeNode className='treeNode' label={<User name={el.name} />}>
+          {el.children.map((one) => (
+            <TreeNode className='treeNode' label={<User name={one.name} />}></TreeNode>
+          ))}
+        </TreeNode>
+      ))}
+    </TreeNode>
   ))
   return (
-    <div>
-      <Tree label={<p>.</p>}>{RenderList}</Tree>
+    <div onTouchStart={zoom.dragStart}
+    onTouchMove={zoom.dragMove}
+    onTouchEnd={zoom.dragEnd}
+    onMouseDown={zoom.dragStart}
+    onMouseMove={zoom.dragMove}
+    onMouseUp={zoom.dragEnd}
+    onMouseLeave={() => {
+      if (zoom.isDragging) zoom.dragEnd();
+    }} style={{ transform: zoom ? zoom.toString(): 1, cursor: zoom.isDragging ? 'grabbing' : 'grab'}}>
+      <Tree label={<User name={lists.name} />}>{RenderList}</Tree>
     </div>
   )
 }
+export default RenderArray
+
 
 const Unilevel_Tree_Page: FC = () => (
   <>
@@ -162,7 +70,8 @@ const Unilevel_Tree_Page: FC = () => (
       <div className='card-body py-3'>
       Unilevel_Tree_Page
       <SearchUser />
-        <RenderArray data={ArrayList} />
+        <ZoomU width={700}
+      height={1000}/>
         <MemberStatus />
       </div>
       {/* begin::Body */}
@@ -184,7 +93,10 @@ const UnilevelTreePage: FC = () => {
   return (
     <>
       <PageTitle breadcrumbs={[]}>{intl.formatMessage({ id: 'Referral Network' })}</PageTitle>
+      <ListProvider>
+        
       <Unilevel_Tree_Page />
+      </ListProvider>
     </>
   )
 }
