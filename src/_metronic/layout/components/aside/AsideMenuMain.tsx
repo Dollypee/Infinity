@@ -88,12 +88,16 @@ export function AsideMenuMain() {
       
       </AsideMenuItemWithSub>
 
-      <AsideMenuItem
+      <AsideMenuItemWithSub
         to='/shopping_cart'
         icon='/media/icons/duotune/general/gen022.svg'
         title='Shopping Cart'
         fontIcon='bi-archive'
-      />
+      >
+        <AsideMenuItem to='/shopping_cart/shop' title='Shop' hasBullet={ true} />
+        <AsideMenuItem to='/shopping_cart/details' title='Product Details' hasBullet={ true} />
+        <AsideMenuItem to='/shopping_cart/cart' title='Cart' hasBullet={ true} />
+      </AsideMenuItemWithSub>
 
 <AsideMenuItemWithSub to='/reports' title='Reports' icon='/media/icons/duotune/general/gen022.svg'>
       <AsideMenuItem to='/reports/commission' title='Commission' />

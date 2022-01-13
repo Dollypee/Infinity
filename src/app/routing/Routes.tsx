@@ -20,14 +20,14 @@ const Routes: FC = () => {
 
   return (
     <>
-      <Switch>
+      {/* <Switch>
         {!isAuthorized ? (
-          /*Render auth page when user at `/auth` and not authorized.*/
+          // Render auth page when user at `/auth` and not authorized.
           <Route>
             <AuthPage />
           </Route>
         ) : (
-          /*Otherwise redirect to root page (`/`)*/
+          // Otherwise redirect to root page (`/`)
           <Redirect from='/auth' to='/' />
         )}
 
@@ -35,7 +35,7 @@ const Routes: FC = () => {
         <Route path='/logout' component={Logout} />
 
         {!isAuthorized ? (
-          /*Redirect to `/auth` when user is not authorized*/
+          // Redirect to `/auth` when user is not authorized
           <Redirect to='/auth/login' />
         ) : (
           <>
@@ -44,7 +44,11 @@ const Routes: FC = () => {
             </MasterLayout>
           </>
         )}
-      </Switch>
+      </Switch> */}
+      
+            <MasterLayout>
+              <PrivateRoutes />
+            </MasterLayout>
       <MasterInit />
     </>
   )

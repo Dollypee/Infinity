@@ -23,8 +23,9 @@ import {KycDetailsPage} from '../pages/profile_management/KycDetails'
 import {PackageDowngradePage} from '../pages/profile_management/PackageDowngrade'
 import {PackageUpgradePage} from '../pages/profile_management/PackageUpgrade'
 import {SubscriptionRenewalPage} from '../pages/profile_management/SubscriptionRenewal'
-import {ViewProfilePage} from '../pages/profile_management/ViewProfile'
-import {ShoppingCartPage} from '../pages/shopping_cart/ShoppingCart'
+import { ViewProfilePage } from '../pages/profile_management/ViewProfile'
+
+import ShoppingCartPage from '../pages/shopping_cart/ShoppingCart'
 
 import {SalesPage} from '../pages/reports/Sales'
 import {PurchasePage} from '../pages/reports/Purchase'
