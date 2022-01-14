@@ -12,9 +12,7 @@ import {
 const Details: FC = (props) => {
   let location = useLocation();
   const [itemDetail, setItemDetail] = React.useState(location.state !== undefined ? location.state.s : '')
-  // const [itemDetail, setItemDetail] = React.useState( {image: '', itemName: 'Please go and select an item', category: '', discountedPrice: '', itemDescription: ''})
-  console.log(itemDetail)
-  console.log(location)
+
 
   return (
     <>
