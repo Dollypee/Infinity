@@ -95,6 +95,7 @@ const Shop: FC = () => {
 
   const [shopItems, setShopItems] = React.useState([
     {
+      id: 1,
       image: "https://i.ibb.co/dQt4cPq/wristwatch.jpg",
       category: "Appliances",
       actualPrice: "$190",
@@ -104,6 +105,7 @@ const Shop: FC = () => {
       itemDescription : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias fugit ullam inventore amet consequatur facilis sit esse explicabo. Et quas ducimus, dicta pariatur officia quasi nemo sapiente fugit similique quo!"
     },
     {
+      id: 2,
       image: "https://i.ibb.co/wwRRHqk/phone.jpg",
       category: "Appliances",
       actualPrice: "$190",
@@ -113,6 +115,7 @@ const Shop: FC = () => {
       itemDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi corrupti aut, tempore id quam voluptatum, sapiente quis asperiores molestiae reiciendis consectetur! Possimus quam provident praesentium qui perferendis voluptatibus fugit dolorem."
     },
     {
+      id: 3,
       image: "https://i.ibb.co/PN0D5c6/airpod.jpg",
       category: "Computers & Tablets",
       actualPrice: "$190",
@@ -122,6 +125,7 @@ const Shop: FC = () => {
       itemDescription : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias fugit ullam inventore amet consequatur facilis sit esse explicabo. Et quas ducimus, dicta pariatur officia quasi nemo sapiente fugit similique quo!"
     },
     {
+      id: 4,
       image: "https://i.ibb.co/dQt4cPq/wristwatch.jpg",
       category: "Computers & Tablets",
       actualPrice: "$190",
@@ -131,6 +135,7 @@ const Shop: FC = () => {
       itemDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi corrupti aut, tempore id quam voluptatum, sapiente quis asperiores molestiae reiciendis consectetur! Possimus quam provident praesentium qui perferendis voluptatibus fugit dolorem."
     },
     {
+      id: 5,
       image: "https://i.ibb.co/wwRRHqk/phone.jpg",
       category: "Computers & Tablets",
       actualPrice: "$190",
@@ -140,6 +145,7 @@ const Shop: FC = () => {
       itemDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi corrupti aut, tempore id quam voluptatum, sapiente quis asperiores molestiae reiciendis consectetur! Possimus quam provident praesentium qui perferendis voluptatibus fugit dolorem."
     },
     {
+      id: 6,
       image: "https://i.ibb.co/PN0D5c6/airpod.jpg",
       category: "Computers & Tablets",
       actualPrice: "$100",

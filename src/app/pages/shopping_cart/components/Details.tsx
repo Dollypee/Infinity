@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import {useLocation} from 'react-router-dom'
+import {useLocation, Link} from 'react-router-dom'
 import { useIntl } from 'react-intl'
 import { PageTitle } from '../../../_metronic/layout/core'
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
@@ -11,8 +11,7 @@ import {
 
 const Details: FC = (props) => {
   let location = useLocation();
-  const [itemDetail, setItemDetail] = React.useState(location.state !== undefined ? location.state.s : '')
-
+  const [itemDetail, setItemDetail] = React.useState(location.state !== undefined ? location.state.s : '')  
 
   return (
     <>
@@ -27,10 +26,12 @@ const Details: FC = (props) => {
                 <h4>{itemDetail.itemName}</h4>
                 <h5>{itemDetail.category}</h5>
                 <h3 style={{ color: "#7367F0" }} className='mt-3'>{itemDetail.discountedPrice}</h3>
-                <p>{itemDetail.itemDescription}</p>
-                <Button className='text-white mt-4 p-3' style={{ backgroundColor: '#7367F0' }} onClick={() => console.log('hello')}>
+              <p>{itemDetail.itemDescription}</p>
+              <Link to={{pathname:'/shopping_cart/cart', state:{itemDetail}}}>
+                <Button className='text-white mt-4 p-3' style={{ backgroundColor: '#7367F0' }} >
                   <ShoppingCartIcon /> <span className='px-3'> View in Cart</span>
                 </Button>
+                </Link>
               </div>
            
             </div>
@@ -38,7 +39,7 @@ const Details: FC = (props) => {
           </div>)
         }
         {!itemDetail &&
-          (<div>
+          (<div className='text-center'>
             <h1>Please Select an item in shop</h1>
           </div>)
         }
