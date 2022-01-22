@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import { useIntl } from 'react-intl'
 import { PageTitle } from '../../../_metronic/layout/core'
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import {Link, NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import {
   Box,
   Step,
@@ -41,6 +41,10 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import data from '../components/data';
+import categories from '../components/categories'
+import { Toolbar1 } from '../../../../_metronic/layout/components/toolbar/Toolbar1'
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -93,78 +97,24 @@ const useStyles = makeStyles(theme => ({
 
 const Shop: FC = () => {
 
-  const [shopItems, setShopItems] = React.useState([
-    {
-      id: 1,
-      image: "https://i.ibb.co/dQt4cPq/wristwatch.jpg",
-      category: "Appliances",
-      actualPrice: "$190",
-      discountedPrice: "$80",
-      itemName: "Apple watch series 5",
-      itemPeriod: "Feb 2nd",
-      itemDescription : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias fugit ullam inventore amet consequatur facilis sit esse explicabo. Et quas ducimus, dicta pariatur officia quasi nemo sapiente fugit similique quo!"
-    },
-    {
-      id: 2,
-      image: "https://i.ibb.co/wwRRHqk/phone.jpg",
-      category: "Appliances",
-      actualPrice: "$190",
-      discountedPrice: "$80",
-      itemName: "Apple watch series 5",
-      itemPeriod: "Jan 31st",
-      itemDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi corrupti aut, tempore id quam voluptatum, sapiente quis asperiores molestiae reiciendis consectetur! Possimus quam provident praesentium qui perferendis voluptatibus fugit dolorem."
-    },
-    {
-      id: 3,
-      image: "https://i.ibb.co/PN0D5c6/airpod.jpg",
-      category: "Computers & Tablets",
-      actualPrice: "$190",
-      discountedPrice: "$80",
-      itemName: "Apple watch series 5",
-      itemPeriod: "Feb 6th",
-      itemDescription : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias fugit ullam inventore amet consequatur facilis sit esse explicabo. Et quas ducimus, dicta pariatur officia quasi nemo sapiente fugit similique quo!"
-    },
-    {
-      id: 4,
-      image: "https://i.ibb.co/dQt4cPq/wristwatch.jpg",
-      category: "Computers & Tablets",
-      actualPrice: "$190",
-      discountedPrice: "$80",
-      itemName: "Apple watch series 5",
-      itemPeriod: "Feb 12th",
-      itemDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi corrupti aut, tempore id quam voluptatum, sapiente quis asperiores molestiae reiciendis consectetur! Possimus quam provident praesentium qui perferendis voluptatibus fugit dolorem."
-    },
-    {
-      id: 5,
-      image: "https://i.ibb.co/wwRRHqk/phone.jpg",
-      category: "Computers & Tablets",
-      actualPrice: "$190",
-      discountedPrice: "$80",
-      itemName: "Apple watch series 5",
-      itemPeriod: "Feb 14th",
-      itemDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi corrupti aut, tempore id quam voluptatum, sapiente quis asperiores molestiae reiciendis consectetur! Possimus quam provident praesentium qui perferendis voluptatibus fugit dolorem."
-    },
-    {
-      id: 6,
-      image: "https://i.ibb.co/PN0D5c6/airpod.jpg",
-      category: "Computers & Tablets",
-      actualPrice: "$100",
-      discountedPrice: "$50",
-      itemName: "Apple watch series 5",
-      itemPeriod: "Feb 11th",
-      itemDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi corrupti aut, tempore id quam voluptatum, sapiente quis asperiores molestiae reiciendis consectetur! Possimus quam provident praesentium qui perferendis voluptatibus fugit dolorem."
-    },
-  ])
+  const [shopItems, setShopItems] = useState(data)
+  const [category, setCategory] = useState(categories)
+  const [cartItems, setCartItems] = useState([]);
 
-  const [selected, setSelected] = React.useState({
+  useEffect(() => {
+    setCartItems(shopItems)
+  }, [setCartItems])
+  const getTotalItems = (items) => cartItems.reduce((ack, item) => ack + item.actualPrice, 0)
+
+  const [selected, setSelected] = useState({
     checked: false,
   })
 
   const handleChange = (event) => {
-    setSelected({ [event.target.name]: event.target.checked })
+    setCategory({ [event.target.name]: event.target.checked })
   }
 
-  const [searchValue, setSearchValue] = React.useState('')
+  const [searchValue, setSearchValue] = useState('')
 
 
 
@@ -172,9 +122,20 @@ const Shop: FC = () => {
     return s.itemName.toLowerCase().includes(searchValue.toLowerCase()) || s.category.toLowerCase().includes(searchValue.toLowerCase())
   })
 
+
   const handleSearchChange = (event) => {
     setSearchValue(event.target.value)
   }
+
+  const onAdd = (data) => {
+    const exist = cartItems.find(x => x.id === data.id);
+    if (exist) {
+      setCartItems(cartItems.map(x => x.id === data.id ? { ...exist, qty: exist.qty + 1 } : x))
+    } else {
+      setCartItems([...cartItems, { ...data, qty: 1 }])
+    }
+  }
+  console.log(cartItems)
 
   const classes = useStyles();
 
@@ -186,7 +147,6 @@ const Shop: FC = () => {
         <Box className={classes.root}>
           <CssBaseline />
           <AppBar position="absolute" className={classes.appBar}>
-            {/* <Toolbar> */}
             <Paper component="form" className='w-100 d-flex justify-content-between px-3 py-2'>
 
               <InputBase
@@ -200,7 +160,6 @@ const Shop: FC = () => {
                 <SearchIcon onClick={() => setShopItems(filteredItem)} />
               </IconButton>
             </Paper>
-            {/* </Toolbar> */}
           </AppBar>
           <Drawer
             className={classes.drawer}
@@ -214,8 +173,8 @@ const Shop: FC = () => {
             <List>
               <h5>Categories</h5>
 
-              {['Appliances', 'Audio', 'Cameras & Camcorders', 'Car Electronics & GPS', 'Cell Phones', 'Computers & Tablets', 'Health, Fitness & Beauty', 'Office & School Supplies', 'TV & Home Theater', 'Video Games'].map((text, index) => (
-                <ListItem button key={text}>
+              {category.map((text, index) => (
+                <ListItem button key={index}>
 
                   <FormControlLabel
                     label=""
@@ -223,8 +182,10 @@ const Shop: FC = () => {
                       <Checkbox
                         icon={<CircleUnchecked />}
                         checkedIcon={<CircleCheckedFilled />}
+                        // value={searchValue}
+
                         // checked={ }
-                        // onChange={}
+                        // onChange={handleChange}
                         name="checked"
                         style={{ color: "#7367F0" }}
                       />
@@ -245,7 +206,7 @@ const Shop: FC = () => {
                 {filteredItem.map((s) => (
                   <div className="col-md-4 my-3">
                     <Card className={classes.cardroot}>
-                      <Link to={{pathname:'/shopping_cart/details', state:{s}}}>
+                      <Link to={{ pathname: '/shopping_cart/details', state: { s } }}>
                         <CardActionArea>
                           <CardMedia
                             className='p-3'
@@ -265,10 +226,10 @@ const Shop: FC = () => {
                               </Typography>
                               <div className="d-flex flex-column">
                                 <span className='text-dark' style={{ textDecoration: 'line-through' }}>
-                                  {s.actualPrice}
+                                  ${s.actualPrice}
                                 </span>
                                 <span className='text-danger'>
-                                  {s.discountedPrice}
+                                  ${s.discountedPrice}
                                 </span>
                               </div>
 
@@ -276,26 +237,25 @@ const Shop: FC = () => {
 
 
                             <Typography variant="body2" color="textSecondary" component="p">
-                              {s.itemPeriod}
+                              {s.itemStocks} Stocks
                             </Typography>
                           </CardContent>
 
                         </CardActionArea>
                       </Link>
-                      <CardActions className='mb-0 text-white' style={{ backgroundColor: '#7367F0', transition: `color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,background 0s,border 0s,-webkit-box-shadow .15s ease-in-out` }}>
-                        <Button className='w-100 text-white' onClick={() => console.log('hello')}>
-                        <ShoppingCartIcon/> <span className='px-3'> View in Cart</span>
-                        </Button>
-                      </CardActions>
-                    </Card></div>
+                      <Link to={{ pathname: '/shopping_cart/cart', state: { cartItems } }}>
+
+                        <CardActions className='mb-0 text-white' style={{ backgroundColor: '#7367F0', transition: `color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,background 0s,border 0s,-webkit-box-shadow .15s ease-in-out` }}>
+                          <Button onClick={() => onAdd(s)} className='text-white text-center w-100' style={{ backgroundColor: '#7367F0' }} >
+                            <ShoppingCartIcon /> <span className='px-3'>{shopItems.includes(cartItems.map((cart) => cart)) ? 'Add to Cart' : 'View in Cart'} </span>
+                          </Button>
+                        </CardActions>
+                      </Link>
+                    </Card>
+                  </div>
                 ))}
               </div>
             </div>
-
-
-
-
-
           </Box>
         </Box>
       </Box>
