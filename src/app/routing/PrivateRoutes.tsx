@@ -64,7 +64,7 @@ export function PrivateRoutes() {
         <Route path='/menu-test' component={MenuTestPage} />
 
         <Route path="/user-earning" component={UserEarningPage} />
-        <Route path='/register' component={RegisterPage} />
+        <Route path='/register/:username' component={RegisterPage} />
         <Route path='/e_wallet/statement' component={E_WalletStatementPage} />
         <Route path='/e_wallet/status' component={E_WalletStatusPage} />
         <Route path='/network/referral_members' component={ReferralNetworkPage} />

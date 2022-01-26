@@ -41,7 +41,7 @@ export function AsideMenuMain() {
       </div> */}
 
       <AsideMenuItem
-        to='/register'
+        to='/register/:username'
         icon='/media/icons/duotune/general/gen022.svg'
         title='Register'
         fontIcon='bi-archive'
@@ -49,7 +49,7 @@ export function AsideMenuMain() {
 
 
       <AsideMenuItem
-        to='/register'
+        to='/holding-tank'
         icon='/media/icons/duotune/general/gen022.svg'
         title='Holding Tank'
         fontIcon='bi-archive'
