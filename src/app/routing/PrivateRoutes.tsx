@@ -14,6 +14,7 @@ import {DownlineMembersPage} from '../pages/network/DownlineMembers'
 import {UnilevelTreePage} from '../pages/network/UnilevelTree'
 import {BinaryTreePage} from '../pages/network/BinaryTree'
 
+import {HoldingTankPage} from '../pages/holding_tank/HoldingTank'
 
 import {PayoutRequestPage} from '../pages/payout/RequestPayout'
 import {PayoutStatusPage} from '../pages/payout/PayoutStatus'
@@ -83,6 +84,7 @@ export function PrivateRoutes() {
         <Route path='/profile_management/subscription_renewal' component={SubscriptionRenewalPage} />
         <Route path='/profile_management/View_profile' component={ViewProfilePage} />
         <Route path='/profile_management/change_transaction_password' component={ChangeTransactionPasswordPage} />
+        <Route path='/holding_tank' component={HoldingTankPage} />
         <Route path='/shopping_cart' component={ShoppingCartPage} />
         <Route path='/reports/sales' component={SalesPage} />
         <Route path='/reports/purchase' component={PurchasePage} />

@@ -174,6 +174,18 @@ const Register: FC = () => {
     setSteps(allSteps)
 
   }, [setSteps])
+  
+  useEffect(() => {
+    if (cartItems) {
+      setTotal((cartItems.map(item => item.actualPrice).reduce((prev, curr) => prev + curr, 0)).toFixed(2))
+    }
+    // else if (item) {
+    //   setTotal((item.actualPrice).toFixed(2))
+    // }
+    else {
+      setTotal(0)
+    }
+  }, [total])
 
 
   const handleNext = () => {
@@ -215,6 +227,9 @@ const Register: FC = () => {
   }
   const handleChange3 = (event) => {
     setSelectedd({ [event.target.name]: event.target.checked })
+  }
+  const handleChange4 = event => {
+    setValue(event.target.value)
   }
 
   const handleChangeAddress = () => {
@@ -611,7 +626,7 @@ const Register: FC = () => {
                   <FormControl component="fieldset">
                     <RadioGroup value={value}>
                       <FormControlLabel value='card' control={<Radio
-                        onChange={handleChange}
+                        onChange={handleChange4}
                         name="card"
                         style={{ color: "#7367F0" }} />} label="US Unlocked Debit Card 12XX XXXX XXXX 0000" />
                       <div>
@@ -623,11 +638,11 @@ const Register: FC = () => {
                       </div>
                       <hr />
                       <FormControlLabel value='bank' control={<Radio
-                        onChange={handleChange}
+                        onChange={handleChange4}
                         name="bank"
                         style={{ color: "#7367F0" }} />} label="Bank" />
                       <FormControlLabel value='crypto' control={<Radio
-                        onChange={handleChange}
+                        onChange={handleChange4}
                         name="bank"
                         style={{ color: "#7367F0" }} />} label="Cyptocurrencies" />
                     </RadioGroup>

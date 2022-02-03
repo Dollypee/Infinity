@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { FC, useEffect } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { useIntl } from 'react-intl'
 import { PageTitle } from '../../../_metronic/layout/core'
 import MaterialTable, { Column } from "@material-table/core";
@@ -19,10 +19,10 @@ const UserEarning = () => {
     transactionDate: string;
   }
 
-  const [transaction, setTransaction] = React.useState([])
-  const [category, setCategory] = React.useState(0)
-  const [daterange, setDaterange] = React.useState(0)
-  const [totalAmount, setTotalAmount] = React.useState(0)
+  const [transaction, setTransaction] = useState([])
+  const [category, setCategory] = useState(0)
+  const [daterange, setDaterange] = useState(0)
+  const [totalAmount, setTotalAmount] = useState(0)
 
   const data: Array<IEarning> = [...transaction];
 
@@ -53,7 +53,7 @@ const UserEarning = () => {
       }));
       const result = userEarnings.reduce((amount, sum) => {
         // return the sum with previous value
-        return parseFloat(amount) + parseFloat(sum.amount);
+        return amount + parseFloat(sum.amount);
         // set initial value as 0
       }, 0);
     setTransaction(userEarnings)
