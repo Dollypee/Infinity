@@ -1,5 +1,9 @@
 {
   "name": "demo1",
+  "engines": {
+    "npm": ">=6.24.15",
+    "node": ">=12.22.8"
+  },
   "version": "8.0.31",
   "private": true,
   "homepage": "/admin",
