@@ -37,11 +37,11 @@ const DashboardPage: FC = () => (
         transformMatrix={initialTransform}
       >  */}
       
-       <ZoomI
+       {/* <ZoomI
       
       width={700}
       height={1100}
-      />
+      /> */}
 
 
 

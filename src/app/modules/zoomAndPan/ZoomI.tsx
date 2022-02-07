@@ -1,5 +1,5 @@
 /* eslint react/jsx-handler-names: "off" */
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { interpolateRainbow } from 'd3-scale-chromatic';
 import { Zoom } from '@vx/zoom';
 import { localPoint } from '@vx/event';
@@ -9,6 +9,9 @@ import genPhyllotaxis, {
   PhyllotaxisPoint,
 } from '@vx/mock-data/lib/generators/genPhyllotaxis';
 import { scaleLinear } from '@vx/scale';
+import { TreeNode } from 'react-organizational-chart';
+import { ListContext } from '../../pages/network/ArrayContext/ListContext';
+import User from '../../pages/network/User';
 
 const bg = '#0a0a0a';
 const points = [...new Array(1000)];
@@ -35,6 +38,23 @@ export default function ZoomI({ width, height }: ZoomIProps) {
 
   const genenerator: GenPhyllotaxisFunction = genPhyllotaxis({ radius: 10, width, height });
   const phyllotaxis: PhyllotaxisPoint[] = points.map((d, i) => genenerator(i));
+
+  // const [lists, setLists] = useContext(ListContext)
+  // // console.log(lists)
+  // const RenderList = lists.children.map((list) => (
+  //   <TreeNode className='treeNode' label={<User name={list.name} />}>
+  //     {list.children.map((el) => (
+  //       <TreeNode className='treeNode' label={<User name={el.name} />}>
+  //         {el.children.map((one) => (
+  //           <TreeNode className='treeNode' label={<User name={one.name} />}></TreeNode>
+  //         ))}
+  //       </TreeNode>
+  //     ))}
+  //   </TreeNode>
+  //  ))
+
+
+
 
   return (
     <>
@@ -96,14 +116,20 @@ export default function ZoomI({ width, height }: ZoomIProps) {
                   `}
                 >
                   <rect width={width} height={height} fill="#1a1a1a" />
+
+                  <img src="" alt="" />
                   {phyllotaxis.map(({ x, y }, i) => (
                     <React.Fragment key={`dot-sm-${i}`}>
-                      <circle
+
+                      <div>
+                        jjjjj
+                      </div>
+                      {/* <circle
                         cx={x}
                         cy={y}
                         r={i > 500 ? sizeScale(1000 - i) : sizeScale(i)}
                         fill={interpolateRainbow(colorScale(i))}
-                      />
+                      /> */}
                     </React.Fragment>
                   ))}
                   <rect
