@@ -133,7 +133,7 @@ const E_WalletStatement: FC = () => {
 
         </div>
       </div>
-      <div className='mt-1'>
+      <div className='mt-3'>
       <div className='card'>
             <div className='card-body py-2 d-flex justify-content-end'>
               <span className='fw-bold'>E-Wallet Balance:  <span className='text-primary'>{PriceLabel(totalBalance)}</span></span>
@@ -180,12 +180,13 @@ const E_WalletStatement: FC = () => {
               actionsColumnIndex: -1,
               exportButton: true,
               filtering: false,
+              search: false,
               padding: 'dense',
               pageSize: 10,
               headerStyle: {
                 fontSize: '13px',
-                backgroundColor: '#ccc',
-                borderBottomColor: '#111',
+                backgroundColor: '#F3F2F7',
+                borderBottomColor: '#ccc',
                 paddingTop: '5px',
                 paddingBottom: '5px',
               },
