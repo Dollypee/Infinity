@@ -79,7 +79,7 @@ export function AsideMenuMain() {
 
       <AsideMenuItemWithSub to='/payout' title='Profile Management' icon='/media/icons/duotune/general/gen022.svg'>
         <AsideMenuItem to='/profile_management/view_profile' title='Profile View' />
-        <AsideMenuItem to='/profile_management/change_login_password' title='Change Login Password' />
+        {/* <AsideMenuItem to='/profile_management/change_login_password' title='Change Login Password' /> */}
         <AsideMenuItem to='/profile_management/change_transaction_password' title='Change Transaction Pasword' />
         <AsideMenuItem to='/profile_management/subscription_renewal' title='Subscription Renewal' />
         <AsideMenuItem to='/profile_management/package_upgrade' title='Package Upgrade' />
